@@ -33,30 +33,67 @@ import products from '../data/products.json';
     .header-menu{
         background: url("/banner-06.webp") no-repeat center center / cover;
         background-attachment: fixed;
-        min-height: 70vh;
+        min-height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;
-
     }
     .header-menu h1{
-        color: #FFFFFF;
-        font-size: 40px;
+        color: #FFFFFF;  /* fallback */
+        color: oklch(1 0 0);
+        font-size: 1.8rem;
         font-family: "Libre Baskerville", serif;
         font-weight: 600;
         font-style: normal;
     }
 
-    
     /**Contenedor productos */
     .main-menu{
-        padding: 2.5rem;
+        padding: 1.5rem;
     }
     .contenedor-productos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        gap: 2rem;
+    }
+        /* Tablets (≥768px) */
+    @media screen and (min-width: 768px) {
+        .header-menu h1{
+            font-size: 2rem;
+        }
+        .main-menu{
+            padding: 2rem;
+        }
+        .contenedor-productos {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 
+    /* Desktops (≥992px) */
+    @media screen and (min-width: 992px) {
+        .header-menu h1{
+            font-size: 2.1rem;
+        }
+        .main-menu{
+            padding: 2.2rem;
+        }
+        .contenedor-productos {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    /* Large desktops (≥1200px) */
+    @media screen and (min-width: 1200px) {
+        .header-menu h1{
+            font-size: 2.5rem;
+        }
+        .main-menu{
+            padding: 2.5rem;
+        }
+        .contenedor-productos {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 
 </style>

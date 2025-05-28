@@ -28,21 +28,24 @@ const { category } = Astro.props;
     .aside-filter{
         display:flex;
         justify-content: center;
-        padding: 2rem;
+        padding: 1rem;
     }
     .menu-categorias {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
-        border: solid #dee2e6 1px;
-        padding: 2rem;
+        border: solid #dee2e6 1px; /* fallback */
+        border: solid oklch(0.902 0.007 233.84) 1px; 
+        padding: 1.2rem;
         list-style: none;
-        background-color: #eeeeeece;
+        background-color: #eeeeeece; /* fallback */
+        background-color: oklch(0.935 0.004 109.71 / 0.81); 
     }
     .boton-menu{
         border: 0;
-        color: #000000;
+        color: #000000; /* fallback */
+        color: oklch(0 0 0);
         background-color: transparent;
         cursor: pointer;
         display: flex;
@@ -54,10 +57,32 @@ const { category } = Astro.props;
         font-weight: 400;
     }
     .boton-menu:hover{
-        color:#C19D60;
+        color:#C19D60; /* fallback */
+        color: oklch(0.755 0.163 79.88);
     }
     .boton-menu.active{
         font-weight: 700;
-        color: #C19D60;
+        color: #C19D60; /* fallback */
+        color: oklch(0.755 0.163 79.88);
+    }
+    /* Tablets (≥768px) */
+    @media screen and (min-width: 768px) {
+        .aside-filter , .menu-categorias{
+            padding: 2rem;
+        }
+    }
+
+    /* Desktops (≥992px) */
+    @media screen and (min-width: 992px) {
+        .aside-filter , .menu-categorias{
+            padding: 2rem;
+        }
+    }
+
+    /* Large desktops (≥1200px) */
+    @media screen and (min-width: 1200px) {
+        .aside-filter , .menu-categorias{
+            padding: 2rem;
+        }
     }
 </style>
