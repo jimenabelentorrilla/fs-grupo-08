@@ -1,0 +1,63 @@
+---
+const { category } = Astro.props;
+---
+
+<aside class="aside-filter">
+        <ul class="menu-categorias"> 
+            <li>
+                <button id="todos" class="boton-menu boton-categoria active">Todos</button>
+            </li>
+            <li>
+                <button id="clasicos" class="boton-menu boton-categoria">Clásicos</button>
+            </li>
+            <li>
+                <button id="pastas" class="boton-menu boton-categoria">Pastas</button>
+            </li>
+            <li>
+                <button id="minutas" class="boton-menu boton-categoria">Minutas</button>
+            </li>
+            <li>
+                <button id="postres" class="boton-menu boton-categoria">Postres</button>
+            </li>
+        </ul>
+    </aside>
+
+
+<style>
+    /**Category Filter **/
+    .aside-filter{
+        display:flex;
+        justify-content: center;
+        padding: 2rem;
+    }
+    .menu-categorias {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        border: solid #dee2e6 1px;
+        padding: 2rem;
+        list-style: none;
+        background-color: #eeeeeece;
+    }
+    .boton-menu{
+        border: 0;
+        color: #000000;
+        background-color: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: ease .3s;
+        font-size: 1rem;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+    }
+    .boton-menu:hover{
+        color:#C19D60;
+    }
+    .boton-menu.active{
+        font-weight: 700;
+        color: #C19D60;
+    }
+</style>

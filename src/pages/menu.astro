@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CategoryFilter from '../components/CategoryFilter.astro';
+import ProductCard from '../components/ProductCard.astro';
+import products from '../data/products.json';
+---
+
+<Layout title="Restó Bodegón - MENU">
+    <section class="header-menu">
+        <h1>Descubrí nuestro menú</h1>
+    </section>
+	<CategoryFilter />
+    <main class="main-menu">
+        <div id="contenedor-productos" class="contenedor-productos">
+            
+            { products.map((producto) => (
+
+                <ProductCard 
+                    name={producto.product} 
+                    price={producto.price} 
+                    image={producto.image} 
+                    category={producto.category} />
+
+            ))}
+
+        </div>
+    </main>
+</Layout>
+
+<style>
+
+    /**Header Menu **/
+    .header-menu{
+        background: url("/banner-06.webp") no-repeat center center / cover;
+        background-attachment: fixed;
+        min-height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .header-menu h1{
+        color: #FFFFFF;
+        font-size: 40px;
+        font-family: "Libre Baskerville", serif;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    
+    /**Contenedor productos */
+    .main-menu{
+        padding: 2.5rem;
+    }
+    .contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+
+</style>
