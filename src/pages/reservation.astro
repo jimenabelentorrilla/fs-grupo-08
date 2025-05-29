@@ -1,0 +1,133 @@
+<html lang="es">
+    <head>
+        <title>Reservas</title>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+       <div class="wrapper">
+            <main class="reservation">
+                <header class="reservation__header">
+                    <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
+                </header>
+                    <form class="reservation__form">
+                        <section class="reservation__items">
+                            <section class="reservation__item">
+                                <label for="full-name" class="reservation__item__full-name">Nombre y Apellido</label>
+                                <span>Este campo no puede quedar vacio</span>
+                                <input class="reservation__item" type="text" id="full-name" name="full-name">
+                                <label class="reservation__item__email" for="email">Correo Electronico</label>
+                                <input type="email" name="email" id="email">
+                            </section>
+                            <section class="reservation__item">
+                                <label class="reservation__item__cellphone" for="cellphone">Telefono Celular</label>
+                                <input name="cellphone" id="cellphone" type="text">
+                                <label class="reservation__item__amount" for="amount">Cantidad de Personas</label>
+                                <input name="amount" id="amount" type="number">
+                            </section>
+                            <section class="reservation__item">
+                                <label class="reservation__item__date" for="date">Fecha</label>
+                                <input name="date" id="date" type="date">
+                                <label class="reservation__item__time" for="time">Hora</label>
+                                <input name="time" id="time" type="time">
+                            </section>
+                            <section class="reservation__item">
+                                <label class="reservation__item__clarification" for="clarification">Mensaje de aclaracion</label>
+                                <input name="clarification" id="clarification" type="text">
+                            </section>
+                        </section>
+                        <section class="reservation__buttons">
+                            <button id="confirm" type="submit">Confirmar Reserva</button>
+                        </section>
+                    </form>
+            </main>
+        </div> 
+    </body>
+</html>
+
+<style>
+    :root{
+        --color-background-wrapper : oklch(0.232 0.0069 161.58);
+        --color-background-form : oklch(0.3387 0.0069 183.81);
+        --color-title : oklch(0.69 0.1154 85.34);
+        --color-text : oklch(0.9312 0.0168 78.99);
+        --size-title: 4em;
+        --size-text: 2.5em;
+        --font-family-title : "Libre Baskerville", serif;
+        --font-family-text : "Roboto", sans-serif
+    }
+    *,*::before, *::after{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .wrapper{
+        min-height: 100vh;
+        min-width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        text-align: center;
+        background-color: var(--color-background-wrapper);
+    }
+
+    .reservation{
+        max-height: 100vh;
+        max-width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        border: solid 25px grey;
+        gap: 2em;
+        background-color: var(--color-background-form);
+        margin: auto auto;  
+    }
+    
+    .reservation__title{
+        font-family: var(--font-family-title);
+        font-size: var(--size-title);
+        color: var(--color-title);
+        text-wrap: balance;
+        display: inline;
+    }
+    .reservation__form{
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+    }
+    .reservation__items{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin: 0 auto;
+    }
+    .reservation__item{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        font-family: var(--font-family-text);
+    }
+
+    .reservation__item > label{
+        font-size: var(--size-text);
+        color: var(--color-text);
+    }
+
+    .reservation__item > input{
+        min-height: 40px;
+    }
+
+    .reservation__buttons{
+        min-height: 8vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #confirm{
+        font-size: var(--size-text);
+        width: 300px;
+        margin: 0 auto;
+    }
+
+</style>
