@@ -1,26 +1,23 @@
----
-const { category } = Astro.props;
----
 
 <aside class="aside-filter">
-        <ul class="menu-categorias"> 
-            <li>
-                <button id="todos" class="boton-menu boton-categoria active">Todos</button>
-            </li>
-            <li>
-                <button id="clasicos" class="boton-menu boton-categoria">Clásicos</button>
-            </li>
-            <li>
-                <button id="pastas" class="boton-menu boton-categoria">Pastas</button>
-            </li>
-            <li>
-                <button id="minutas" class="boton-menu boton-categoria">Minutas</button>
-            </li>
-            <li>
-                <button id="postres" class="boton-menu boton-categoria">Postres</button>
-            </li>
-        </ul>
-    </aside>
+    <ul class="menu-categories"> 
+        <li>
+            <button id="todos" class="button-menu active">Todos</button>
+        </li>
+        <li>
+            <button id="clasicos" class="button-menu">Clásicos</button>
+        </li>
+        <li>
+            <button id="pastas" class="button-menu">Pastas</button>
+        </li>
+        <li>
+            <button id="minutas" class="button-menu">Minutas</button>
+        </li>
+        <li>
+            <button id="postres" class="button-menu">Postres</button>
+        </li>
+    </ul>
+</aside>
 
 
 <style>
@@ -30,7 +27,7 @@ const { category } = Astro.props;
         justify-content: center;
         padding: 1rem;
     }
-    .menu-categorias {
+    .menu-categories {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -42,7 +39,7 @@ const { category } = Astro.props;
         background-color: #eeeeeece; /* fallback */
         background-color: oklch(0.935 0.004 109.71 / 0.81); 
     }
-    .boton-menu{
+    .button-menu{
         border: 0;
         color: #000000; /* fallback */
         color: oklch(0 0 0);
@@ -54,34 +51,34 @@ const { category } = Astro.props;
         transition: ease .3s;
         font-size: 1rem;
         font-family: "Roboto", sans-serif;
-        font-weight: 400;
+        font-weight: 500;
     }
-    .boton-menu:hover{
+    .button-menu::hover{
         color:#C19D60; /* fallback */
         color: oklch(0.755 0.163 79.88);
     }
-    .boton-menu.active{
+    .button-menu.active{
         font-weight: 700;
         color: #C19D60; /* fallback */
         color: oklch(0.755 0.163 79.88);
     }
     /* Tablets (≥768px) */
     @media screen and (min-width: 768px) {
-        .aside-filter , .menu-categorias{
+        .aside-filter , .menu-categories{
             padding: 2rem;
         }
     }
 
     /* Desktops (≥992px) */
     @media screen and (min-width: 992px) {
-        .aside-filter , .menu-categorias{
+        .aside-filter , .menu-categories{
             padding: 2rem;
         }
     }
 
     /* Large desktops (≥1200px) */
     @media screen and (min-width: 1200px) {
-        .aside-filter , .menu-categorias{
+        .aside-filter , .menu-categories{
             padding: 2rem;
         }
     }

@@ -11,20 +11,21 @@ import products from '../data/products.json';
     </section>
 	<CategoryFilter />
     <main class="main-menu">
-        <div id="contenedor-productos" class="contenedor-productos">
+        <div class="container-products">
             
-            { products.map((producto) => (
+            { products.map((product) => (
 
                 <ProductCard 
-                    name={producto.product} 
-                    price={producto.price} 
-                    image={producto.image} 
-                    category={producto.category} />
+                    name={product.product} 
+                    price={product.price} 
+                    image={product.image} 
+                    category={product.category} />
 
             ))}
 
         </div>
     </main>
+    <script type="module" src="/src/scripts/filter.js"></script>
 </Layout>
 
 <style>
@@ -41,17 +42,18 @@ import products from '../data/products.json';
     .header-menu h1{
         color: #FFFFFF;  /* fallback */
         color: oklch(1 0 0);
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-family: "Libre Baskerville", serif;
         font-weight: 600;
         font-style: normal;
+        padding: 1em;
     }
 
     /**Contenedor productos */
     .main-menu{
         padding: 1.5rem;
     }
-    .contenedor-productos {
+    .container-products {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
@@ -65,7 +67,7 @@ import products from '../data/products.json';
         .main-menu{
             padding: 2rem;
         }
-        .contenedor-productos {
+        .container-products {
             grid-template-columns: repeat(2, 1fr);
         }
     }
@@ -78,7 +80,7 @@ import products from '../data/products.json';
         .main-menu{
             padding: 2.2rem;
         }
-        .contenedor-productos {
+        .container-products {
             grid-template-columns: repeat(3, 1fr);
         }
     }
@@ -91,7 +93,7 @@ import products from '../data/products.json';
         .main-menu{
             padding: 2.5rem;
         }
-        .contenedor-productos {
+        .container-products {
             grid-template-columns: repeat(3, 1fr);
         }
     }
