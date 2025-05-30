@@ -1,0 +1,44 @@
+---
+import {SCHEDULES} from "../mocks/Schedules.astro";
+
+export const INPUTS = [
+    {
+        label : 'Nombre y Apellido',
+        name : 'full-name',
+        type : 'text',
+        errorMessage : 'Este campo solo admite letras.'
+    },
+    {
+        label : "Correo Electronico",
+        name : "email",
+        type : "email",
+        errorMessage : "El email ingresado no es correcto."
+    },
+    {
+        label : "Telefono Celular",
+        name : "cellphone",
+        type : "number",
+        errorMessage : "Numero no valido."
+    },
+    {
+        label : "Cantidad de Personas",
+        name : "amountPer",
+        type : "select",
+        errorMessage : "Este campo no puede quedar vacio.",
+        options : ["1","2",'3','4','5','6','7','8']
+    },
+    {
+        label : "Fecha",
+        name : "date",
+        type : "date",
+        errorMessage : "La fecha ingresada no es correcta."
+    },
+    {
+        label : "Hora",
+        name : "time",
+        type : "select",
+        errorMessage : "Por favor ingrese una fecha valida antes.",
+        options : SCHEDULES
+    }
+];
+---
