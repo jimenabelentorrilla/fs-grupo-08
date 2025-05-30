@@ -149,7 +149,7 @@
         }
         #confirm{
             font-size: var(--size-text-desktop);
-            width: 25vw;
+            width: 30vw;
         }
         #confirm:hover{
             background-color: oklch(0.6135 0.1845 142.52);
@@ -157,9 +157,21 @@
         }
     }
 
+    @media screen and (min-width : 1200px) {
+        .reservation{
+            width: 80vw;
+            height: 85vh;
+            gap: 4em;
+        }
+        #confirm{
+            font-size: var(--size-text-desktop);
+            width: 20vw;
+            height: 9vh;
+        }        
+    }
     @media screen and (min-width : 1920px){
         .reservation__title{
-            font-size: 3.6em;
+            font-size: 3.8em;
         }
         .reservation{
             width: 75vw;
