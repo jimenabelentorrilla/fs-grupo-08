@@ -1,0 +1,130 @@
+---
+import Dropdown from "../components/Dropdown.astro"
+
+interface Props{
+    label : string;
+    name : string;
+    type : string;
+    errorMessage : string;
+    options :[string] ;
+}
+
+const { label, name, type, errorMessage,options } = Astro.props;
+---
+  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </body>
+  <div class="reservation__item">
+      <label for={name}>{label}</label>
+      {
+        type === 'select' ? (
+          <Dropdown name={name} options={options} errorMessage={errorMessage} />
+        ):(
+          <input class={name} required
+            name={name} 
+            type= {type}
+            id= {name}
+          />
+        )
+      }
+      <span class="error hidden">{errorMessage}</span>
+  </div>
+
+<style>
+
+  .reservation__item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      gap: 0.5em;
+    }
+    label{
+      font-size: var(--size-text);
+      font-family: var(--font-family-text);
+      color: oklch(0.74 0.0168 138.28);
+    }
+    input{
+      width: var(--size-input);
+      margin: 0 auto;
+      font-size: var(--size-text);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border: none;
+      font-family: var(--font-family-text);
+      background-color: oklch(0.3987 0.0291 48.28);
+      color: white;
+    }
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+    .error {
+      position: absolute;
+      background-color: #f44336;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: var(--size-text-error);
+      white-space: nowrap;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 8px);
+      z-index: 10;
+      box-shadow: 0 10px 6px rgba(0,0,0,0.2);
+      
+  }
+
+  .error::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #f44336 transparent;
+  }
+  .hidden{
+    display: none;
+  }
+  .reservation__item {
+    position: relative;
+  }
+
+  @media screen and (min-width : 768px){
+    label{
+      font-size: var(--size-text-tablet);
+    }
+    input{
+      width: var(--size-input-tablet);
+      font-size: var(--size-text-tablet);
+      height: var(--size-input-height-tablet);
+    }
+    .error{
+      font-size: var(--size-text-error-tablet);
+    }
+  }
+  @media screen and (min-width : 992px){
+    label{
+      font-size: var(--size-text-desktop);
+    }
+    input{
+      font-size: var(--size-text-desktop);
+      height: var(--size-input-height-desktop);
+      width: var(--size-input-width-desktop);
+    }
+  }
+  @media screen and (min-width : 1920px){
+    label{
+      font-size: 2.4em;
+    }
+    input{
+      width: 18vw;
+      height: 4vh;
+    }
+    .error{
+      font-size: 1.8em;
+    }
+  }
+</style>

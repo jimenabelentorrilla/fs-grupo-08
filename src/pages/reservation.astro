@@ -1,57 +1,50 @@
-<html lang="es">
-    <head>
-        <title>Reservas</title>
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    </head>
-    <body>
-       <div class="wrapper">
-            <main class="reservation">
-                <header class="reservation__header">
+---
+    import {INPUTS} from "../mocks/Data.astro"; 
+    import Input from "../components/Input.astro";
+---
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div class="wrapper">
+        <main class="reservation">
+            <header class="reservation__header">
                     <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
-                </header>
-                    <form class="reservation__form">
-                        <section class="reservation__items">
-                            <section class="reservation__item">
-                                <label for="full-name" class="reservation__item__full-name">Nombre y Apellido</label>
-                                <span>Este campo no puede quedar vacio</span>
-                                <input class="reservation__item" type="text" id="full-name" name="full-name">
-                                <label class="reservation__item__email" for="email">Correo Electronico</label>
-                                <input type="email" name="email" id="email">
-                            </section>
-                            <section class="reservation__item">
-                                <label class="reservation__item__cellphone" for="cellphone">Telefono Celular</label>
-                                <input name="cellphone" id="cellphone" type="text">
-                                <label class="reservation__item__amount" for="amount">Cantidad de Personas</label>
-                                <input name="amount" id="amount" type="number">
-                            </section>
-                            <section class="reservation__item">
-                                <label class="reservation__item__date" for="date">Fecha</label>
-                                <input name="date" id="date" type="date">
-                                <label class="reservation__item__time" for="time">Hora</label>
-                                <input name="time" id="time" type="time">
-                            </section>
-                            <section class="reservation__item">
-                                <label class="reservation__item__clarification" for="clarification">Mensaje de aclaracion</label>
-                                <input name="clarification" id="clarification" type="text">
-                            </section>
-                        </section>
-                        <section class="reservation__buttons">
-                            <button id="confirm" type="submit">Confirmar Reserva</button>
-                        </section>
-                    </form>
-            </main>
-        </div> 
-    </body>
-</html>
+            </header>
+                <form class="reservation__form" novalidate id="reservation__form">
+                    <section class="reservation__items">
+                        {
+                            INPUTS.map( (input) => {
+                                return <Input {...input}/>
+                            })
+                        }
+                    </section>
+                    <section class="reservation__buttons">
+                        <button id="confirm" type="submit">Confirmar Reserva</button>
+                    </section>
+                </form>
+    </main>
+</div> 
 
 <style>
     :root{
         --color-background-wrapper : oklch(0.232 0.0069 161.58);
         --color-background-form : oklch(0.3387 0.0069 183.81);
+        --color-background-botton: oklch(0.69 0.1154 85.34);
         --color-title : oklch(0.69 0.1154 85.34);
         --color-text : oklch(0.9312 0.0168 78.99);
-        --size-title: 4em;
-        --size-text: 2.5em;
+        --size-title: 1.5em;
+        --size-title-tablet: 3em;
+        --size-title-desktop: 3.5em;
+        --size-text: 0.9em;
+        --size-text-tablet: 1.55em;
+        --size-text-desktop: 2.1em;
+        --size-text-error: 0.9em;
+        --size-text-error-tablet: 1.6em;
+        --size-input : 20vh;
+        --size-input-tablet : 22vh;
+        --size-input-height-tablet : 3.2vh;
+        --size-input-height-desktop : 5vh;
+        --size-input-width-desktop : 23vw;
         --font-family-title : "Libre Baskerville", serif;
         --font-family-text : "Roboto", sans-serif
     }
@@ -60,7 +53,10 @@
         margin: 0;
         box-sizing: border-box;
     }
-
+    body{
+        margin: 0;
+        padding: 0;
+    }
     .wrapper{
         min-height: 100vh;
         min-width: 100vw;
@@ -79,45 +75,29 @@
         justify-content: center;
         text-align: center;
         border: solid 25px grey;
-        gap: 2em;
+        gap: 0.5em;
         background-color: var(--color-background-form);
         margin: auto auto;  
     }
-    
+
     .reservation__title{
         font-family: var(--font-family-title);
         font-size: var(--size-title);
         color: var(--color-title);
         text-wrap: balance;
-        display: inline;
+        padding: 10px;
     }
     .reservation__form{
         display: flex;
         flex-direction: column;
-        gap: 3em;
+        gap: 0.5em;
     }
+
     .reservation__items{
         display: flex;
         flex-direction: column;
         gap: 1em;
-        margin: 0 auto;
     }
-    .reservation__item{
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        font-family: var(--font-family-text);
-    }
-
-    .reservation__item > label{
-        font-size: var(--size-text);
-        color: var(--color-text);
-    }
-
-    .reservation__item > input{
-        min-height: 40px;
-    }
-
     .reservation__buttons{
         min-height: 8vh;
         display: flex;
@@ -126,8 +106,208 @@
     }
     #confirm{
         font-size: var(--size-text);
-        width: 300px;
+        font-family: var(--font-family-text);
+        width: 30vw;
         margin: 0 auto;
+        background-color: var(--color-background-botton);
+        border-radius: 15px;
+    }
+   
+    @media screen and (min-width : 768px) {
+        .wrapper{
+            background-image: url('../../public/images/reservation_background.jpg');
+            
+            background-position:center ;
+            background-size: cover;
+        }
+        .reservation__title{
+            font-size: var(--size-title-tablet);
+            text-wrap: pretty;
+        }
+        .reservation__items{
+            display: grid;
+            grid-template-columns: repeat( 2, 1fr );
+            gap: 1em;
+        }
+        #confirm{
+            width: 25vw;
+            font-size: var(--size-text-tablet);
+        }
+    }
+    @media screen and (min-width : 992px) {
+        .reservation__title{
+            font-size: var(--size-title-desktop);
+        }
+        .reservation{
+            gap: 3.6em;
+        }
+        .reservation__items{
+            gap: 2.3em;
+        }
+        .reservation__form{
+            gap: 2em;
+        }
+        #confirm{
+            font-size: var(--size-text-desktop);
+            width: 25vw;
+        }
+        #confirm:hover{
+            background-color: oklch(0.6135 0.1845 142.52);
+            
+        }
+    }
+
+    @media screen and (min-width : 1920px){
+        .reservation__title{
+            font-size: 3.6em;
+        }
+        .reservation{
+            width: 75vw;
+            height: 85vh;
+            gap: 2em;
+        }
+        #confirm{
+            margin-top: 1em;
+            width: 30vw;
+            height: 7vh;
+            font-size: 3em;
+        }
     }
 
 </style>
+<script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const $formInputs = document.querySelectorAll('input[name]');
+        const $formSelects = document.querySelectorAll('select[name]')
+        const $form = document.getElementById('reservation__form');
+        const $time = document.getElementById('time');
+        const $dateInput = document.getElementById('date');
+
+        const validateName = (name) => /^[a-zA-Z\s]+$/.test(name) && name.length > 0;
+        const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) && email.length > 0;
+        const validateCellPhone = (num) =>  /^(\+54\s?9\d{10}|\d{10})$/.test(num) && num.length > 0;
+        const validateDate = (dates) => {
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');       // Día del mes
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Mes (0-indexed)
+            const year = today.getFullYear();
+            let todayString = `${year}-${month}-${day}`;
+            return dates >= todayString;
+        };
+
+        const vlaidateTime = (hora) => hora != "";
+        const vlaidateAmount = (amount) => amount != "";
+        
+        const VALIDATION_FUNCTIONS = {
+            'full-name' : validateName,
+            'email' : validateEmail,
+            'cellphone' : validateCellPhone,
+            'date' : validateDate,
+            'time' : vlaidateTime,
+            'amountPer' : vlaidateAmount
+        };
+        const isValueValid =  ( name, value ) =>{
+            const validationFunction = VALIDATION_FUNCTIONS[name] ?? DEFAULT_FUNCTION;  
+            return validationFunction(value);
+        };
+        const isAllValid = () =>{
+            let isValid = true;
+            $formInputs.forEach( (input) => {
+                if( ! isValueValid( input.name, input.value ) )
+                  isValid = false;  
+            } )
+            return isValid;
+        };
+        
+        const isAllSelectValid = () => {
+            let isValid = true;
+            $formSelects.forEach( (select) =>{
+                 if( ! isValueValid( select.name, select.value ) )
+                    isValid = false;
+            } )
+            return isValid
+        }
+
+        const $submitButton = document.getElementById('confirm');
+        $submitButton.disabled = !$form.checkValidity()
+        const DEFAULT_FUNCTION = (_) => true;
+
+        $formInputs.forEach( (input) => {
+            input.addEventListener('input', () =>{
+                const {name, value} = input;
+                const isValid = isValueValid( name,value );
+                const msjError = input.nextElementSibling;
+                msjError.classList.toggle('hidden', isValid)
+                const $submitButton = document.getElementById('confirm');
+                if( ! isValid )
+                    $submitButton.disabled = true;
+                else
+                    $submitButton.disabled = !(isAllValid() && isAllSelectValid());
+            });
+
+            input.addEventListener('blur', () => {
+                const msjError = input.nextElementSibling;
+                msjError.classList.toggle('hidden', true);
+            });
+        });
+
+        $formSelects.forEach( (select) =>{
+
+            select.addEventListener('input', (e) => {
+                let isValid = isValueValid( e.target.name, e.target.value );
+                const msjError = select.nextElementSibling;
+                msjError.classList.toggle('hidden', isValid)
+                if( ! isValid )
+                    $submitButton.disabled = true;
+                else
+                    $submitButton.disabled = !(isAllValid() && isAllSelectValid());
+
+            });
+
+            select.addEventListener('blur', () =>{
+            const msjError = select.nextElementSibling;
+            msjError.classList.toggle('hidden', true);  
+            if( isAllValid() && isAllSelectValid() )
+                $submitButton.disabled = false;
+            else
+                $submitButton.disabled = true;
+            });
+        });
+
+        $form.addEventListener('submit', (e) =>{
+            e.preventDefault();
+            const formData = new FormData($form);
+            const fullName = formData.get('full-name');
+            const email = formData.get('email');
+            const cellPhone = formData.get('cellphone');
+            const amountPerson = formData.get('amountPer');
+            const date = formData.get('date');
+            const time = formData.get('time');
+            const newReservation = {
+                fullName,
+                email,
+                cellPhone,
+                amountPerson,
+                date,
+                time
+            };
+            console.log(newReservation);
+            sessionStorage.setItem( `${date}${time}`, JSON.stringify( newReservation ) );
+            $form.submit();
+        });
+
+        $time.addEventListener('mousedown', (e) =>{
+            const msjError = $time.nextElementSibling;
+            if( ! validateDate( $dateInput.value) ){
+                e.preventDefault();
+                msjError.classList.toggle('hidden', false)
+                $time.focus();
+            }
+                
+        });
+
+
+})
+
+</script>
