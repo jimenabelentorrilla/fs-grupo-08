@@ -1,5 +1,12 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/base", // TypeScript, lo minimo posible, usamos el base
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "baseUrl": ".", // Que la URL base sea donde estoy parado
+    "paths": { // Aqui los customizamos
+      "@components/*":["src/components/*"],
+      "@layouts/*": ["src/layouts/*"]
+    }
+  }
 }

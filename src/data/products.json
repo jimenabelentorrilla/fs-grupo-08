@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "product": "Ñoquis a la Bolognesa",
+    "price": 5200,
+    "image": "https://www.paladini.com.ar/assets/img/recetas/noquis-bolognesa.jpg",
+    "category": "pastas"
+  },
+  {
+    "id": 2,
+    "product": "Ravioles de Ricota y Espinaca",
+    "price": 5800,
+    "image": "https://gbprodstorage.blob.core.windows.net/files/styles/recipe_main_image_mobile/windowsazurestorage/recipes/1540183836ffb7c72af748361821a104d3bda2c6b1.jpg?h=289976fd",
+    "category": "pastas"
+  },
+  {
+    "id": 3,
+    "product": "Lasagna de Carne",
+    "price": 6200,
+    "image": "https://mdr.ar/download/multimedia.normal.bb17e655b3e4a6ee.bGFzYWfDsWEgZGUgY2FybmVfbm9ybWFsLndlYnA%3D.webp",
+    "category": "pastas"
+  },
+  {
+    "id": 4,
+    "product": "Milanesa a la Napolitana con Papas Fritas",
+    "price": 6500,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1TqD9r018TP7u8wqp7R_j3T-AzRPCRMKfw&s",
+    "category": "minutas"
+  },
+  {
+    "id": 5,
+    "product": "Tortilla de Papas",
+    "price": 4800,
+    "image": "https://assets.elgourmet.com/wp-content/uploads/2023/03/cover_kvh73gs5ar_tortilla.jpg",
+    "category": "clasicos"
+  },
+  {
+    "id": 6,
+    "product": "Pollo al Horno con Papas",
+    "price": 6000,
+    "image": "https://content-cocina.lecturas.com/medio/2021/04/16/paso_a_paso_para_realizar_pollo_al_horno_a_la_cerveza_con_patatas_hasselback_resultado_final_10aa248a_1200x1200.jpg",
+    "category": "clasicos"
+  },
+  {
+    "id": 7,
+    "product": "Matambre a la Pizza",
+    "price": 7000,
+    "image": "https://media.airedesantafe.com.ar/p/b5592bf920dcbb803f78a99a3c8e7903/adjuntos/268/imagenes/003/777/0003777919/1200x675/smart/como-hacer-matambre-la-pizza-casa-la-receta-mas-facil-y-rica.png",
+    "category": "clasicos"
+  },
+  {
+    "id": 8,
+    "product": "Empanadas Fritas de Carne (x3)",
+    "price": 3000,
+    "image": "https://assets.unileversolutions.com/recipes-v2/237001.jpg",
+    "category": "entradas"
+  },
+  {
+    "id": 9,
+    "product": "Provoleta",
+    "price": 3500,
+    "image": "https://resizer.glanacion.com/resizer/v2/provolet-TP6SDEW4YRBI5K5OFYZXZRVK5A.jpg?auth=eef0901fdb54418455d880a2216e0166f3c898aed9fbf0a53d9720fcc05b9a88&width=1920&height=1281&quality=70&smart=false&focal=774,674",
+    "category": "entradas"
+  },
+  {
+    "id": 10,
+    "product": "Flan con Dulce de Leche",
+    "price": 2500,
+    "image": "https://laopinionaustral.com.ar/media/uploads/2023/08/flan1.webp",
+    "category": "postres"
+  },
+  {
+    "id": 11,
+    "product": "Tiramisú",
+    "price": 2800,
+    "image": "https://resizer.glanacion.com/resizer/v2/tiramisu-facil-con-IKZWSK7CUNBJNO5J5YMJBSEPWY.jpg?auth=18d79003c837c67161737a803bb41d21f21f699d21521717d943ee29d49b2fc2&width=1280&height=854&quality=70&smart=true",
+    "category": "postres"
+  },
+  {
+    "id": 12,
+    "product": "Helado Artesanal (2 Bochas)",
+    "price": 2200,
+    "image": "https://img.freepik.com/fotos-premium/cucharadas-helado-chocolate-hojas-menta-tazon_755913-9676.jpg",
+    "category": "postres"
+  },
+  {
+    "id": 13,
+    "product": "Pastel de Papa",
+    "price": 5900,
+    "image": "https://easyways.cl/storage/20200728122051pastel-de-papa.jpg",
+    "category": "clasicos"
+  },
+  {
+    "id": 14,
+    "product": "Ravioles con Salsa Rosa",
+    "price": 5850,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiwt-GXxZcduCVpfGntKi5iO9xC1NeVl0oaQ&s",
+    "category": "pastas"
+  },
+  {
+    "id": 15,
+    "product": "Ñoquis a la Parisienne",
+    "price": 5500,
+    "image": "https://i.ytimg.com/vi/CA_8kiFrAxo/maxresdefault.jpg",
+    "category": "pastas"
+  },
+  {
+    "id": 16,
+    "product": "Bife de Chorizo",
+    "price": 6000,
+    "image": "https://media.c5n.com/p/3049c04c65d88e71f36b99bd865da432/adjuntos/326/imagenes/000/237/0000237567/790x0/smart/carne.jpg",
+    "category": "minutas"
+  },
+  {
+    "id": 17,
+    "product": "Suprema a la Maryland",
+    "price": 6700,
+    "image": "https://www.clarin.com/img/2024/08/09/SQrN6GsGV_1256x620__3.jpg",
+    "category": "minutas"
+  },
+  {
+    "id": 18,
+    "product": "Hamburguesa Completa con Papas",
+    "price": 6200,
+    "image": "https://cdn.pedix.app/rzpTlv7kOBNrhxV28rL3/products/1683559506768.png?size=800x800",
+    "category": "minutas"
+  },
+  {
+    "id": 19,
+    "product": "Milanesa de Pollo con Ensalada",
+    "price": 5900,
+    "image": "https://i.pinimg.com/736x/97/5f/7e/975f7e1d837d94ad98d8ebed95ce95c0.jpg",
+    "category": "minutas"
+  },
+  {
+    "id": 20,
+    "product": "Ensalada Caesar con Pollo",
+    "price": 4800,
+    "image": "https://cdn7.kiwilimon.com/recetaimagen/36391/960x640/45060.jpg.jpg",
+    "category": "clasicos"
+  },
+  {
+    "id": 21,
+    "product": "Panqueques con Dulce de Leche",
+    "price": 2600,
+    "image": "https://imag.bonviveur.com/panqueques.jpg",
+    "category": "postres"
+  },
+  {
+    "id": 22,
+    "product": "Budín de Pan",
+    "price": 2400,
+    "image": "https://chefpepin.com/wp-content/uploads/2018/08/Bud%C3%ADn-o-Pud%C3%ADn-de-Pan.jpg",
+    "category": "postres"
+  }
+]

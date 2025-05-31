@@ -1,0 +1,183 @@
+---
+const { name, price, image, isDetail = false } = Astro.props;
+---
+
+    <div class:list={['product', {"cnt-flex-detail": isDetail}, {"hover": !isDetail}]} data-category={Astro.props.category}>
+        <a href={`/${name.toLowerCase()}`}>
+            <div class:list={[{"cnt-flex": isDetail}]}>
+                <div>
+                    <div class:list={['product-img', { "product-img-details": isDetail }]}>
+                        <img class='product-img-img' src={image} alt={name} transition:name={name.toLowerCase()}  />
+                    </div>
+                    <div class:list={['product-details', { "product-det-details" : isDetail}]}>
+                        <h3 class:list={['product-title', { "product-title-details": isDetail }]}>{name}</h3>
+                        {isDetail && ( <p class="product-price">${price}</p> )}
+                    </div>
+                    
+                </div>
+                <div>
+                    {isDetail && (
+                        <div class="container-details">
+                            <ul class="product-perks">
+                                <li><i class="fa-solid fa-truck"></i> Envío gratis </li>
+                                <li><i class="fa-solid fa-clock"></i>Listo en 20 minutos</li>
+                                <li><i class="fa-solid fa-rotate-left"></i>Devolución sin cargo</li>
+                            </ul>
+                        </div>
+                    )}
+                </div>
+                    
+            </div>
+        </a>
+    </div>
+
+
+    <style>
+    /**Product Card**/
+    .product {
+        position: relative;
+        overflow: hidden;
+        background-color: #fff; /* fallback */
+        background-color: oklch(1 0 0); 
+        border: 1px solid rgba(0, 0, 0, 0.1); /* fallback */
+        border: 1px solid oklch(0 0 0 / 0.1);
+        border-radius: 1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* fallback */
+        box-shadow: 0 2px 6px oklch(0.3 0.02 250 / 0.08);
+        width: 80%;
+    }
+    .hover{
+        cursor: pointer;
+        animation: fadeIn 0.6s ease;
+    }
+    .hover:hover{
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* fallback */
+        box-shadow: 0 8px 20px oklch(0.4 0.04 40 / 0.15);
+        transform: translateY(-4px);
+        transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+
+    .product-img{
+        width: 100%;
+        aspect-ratio: 4 / 2;
+        overflow: hidden;
+    }
+    
+    .product-img-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover; 
+    }
+
+    .product-details {
+        padding: 2.2rem 1.2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        font-family: "Libre Baskerville", serif;
+        font-style: normal;
+    }
+
+    .product-title {
+        font-size: 1.1rem;
+        margin: 0;
+        color: #000000; /* fallback */
+        color: oklch(0 0 0);
+        text-transform: capitalize;
+    }
+
+    /*******DETAILS *****/
+    .cnt-flex-detail {
+        padding: 2rem;
+        background-color: oklch(1 0 0);
+        max-width: 50vw;
+        margin: 0 auto;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cnt-flex{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    .product-img-details {
+        aspect-ratio: 3/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 26px;
+
+    }
+    .product-det-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+        
+    .product-title-details {
+        font-size: 2rem;
+        font-weight: bold;
+        color: oklch(0 0 0);
+        margin: 0;
+    }
+    .container-details{
+        padding: 0 1.2rem;
+
+    }
+    .product-price {
+        font-size: 1.6rem;
+        font-weight: 900;
+        margin: 0;
+        color: oklch(0.755 0.163 79.88);
+    } 
+    
+    /** EXTRAS **/
+    .product-perks {
+        list-style: none;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+    .product-perks li {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        color: #333;
+        font-family: "Roboto", sans-serif;
+        gap: 0.5rem;
+    }
+
+    .product-perks i {
+        color: oklch(0.755 0.163 79.88);
+        min-width: 1.25rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    /* Tablets (≥768px) */
+    @media screen and (min-width: 768px) {
+        .product{
+            width: 100%;
+        }
+    }
+
+    /* Desktops (≥992px) */
+    @media screen and (min-width: 992px) {
+        .product{
+            width: 100%;
+        }
+    }
+
+    /* Large desktops (≥1200px) */
+    @media screen and (min-width: 1200px) {
+        .product{
+            width: 100%;
+        }
+    }
+    </style>
