@@ -1,68 +1,42 @@
 ---
     import {INPUTS} from "../mocks/Data.astro"; 
     import Input from "../components/Input.astro";
+    import Layout from '@layouts/Layout.astro';
 ---
 
-<div class="wrapper">
+
+<Layout title="Restó Bodegón - Reservas">
+    <div class="wrapper">
         <main class="reservation">
-            <header class="reservation__header">
-                    <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
-            </header>
-                <form class="reservation__form" novalidate id="reservation__form">
-                    <section class="reservation__items">
-                        {
-                            INPUTS.map( (input) => {
-                                return <Input {...input}/>
-                            })
-                        }
-                    </section>
-                    <section class="reservation__buttons">
-                        <button id="confirm" type="submit">Confirmar Reserva</button>
-                    </section>
-                </form>
-    </main>
-</div> 
+                <header class="reservation__header">
+                        <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
+                </header>
+                    <form class="reservation__form" novalidate id="reservation__form">
+                        <section class="reservation__items">
+                            {
+                                INPUTS.map( (input) => {
+                                    return <Input {...input}/>
+                                })
+                            }
+                        </section>
+                        <section class="reservation__button">
+                            <button id="confirm" type="submit">Confirmar Reserva</button>
+                        </section>
+                    </form>
+        </main>
+    </div> 
+</Layout>
 
 <style>
-    :root{
-        --color-background-wrapper : oklch(0.232 0.0069 161.58);
-        --color-background-form : oklch(0.3387 0.0069 183.81);
-        --color-background-botton: oklch(0.69 0.1154 85.34);
-        --color-title : oklch(0.69 0.1154 85.34);
-        --color-text : oklch(0.9312 0.0168 78.99);
-        --size-title: 1.5em;
-        --size-title-tablet: 3em;
-        --size-title-desktop: 3.5em;
-        --size-text: 0.9em;
-        --size-text-tablet: 1.55em;
-        --size-text-desktop: 2.1em;
-        --size-text-error: 0.9em;
-        --size-text-error-tablet: 1.6em;
-        --size-input : 20vh;
-        --size-input-tablet : 22vh;
-        --size-input-height-tablet : 3.2vh;
-        --size-input-height-desktop : 5vh;
-        --size-input-width-desktop : 23vw;
-        --font-family-title : "Libre Baskerville", serif;
-        --font-family-text : "Roboto", sans-serif
-    }
-    *,*::before, *::after{
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-    body{
-        margin: 0;
-        padding: 0;
-    }
     .wrapper{
         min-height: 100vh;
         min-width: 100vw;
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        text-align: center;
-        background-color: var(--color-background-wrapper);
+        margin: 0 auto;
+        background-color: var(--color-bg-wrapper);
+        background-image: url('../../public/images/reservation_background.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .reservation{
@@ -72,16 +46,16 @@
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        border: solid 25px grey;
+        border: solid 10px grey;
         gap: 0.5em;
-        background-color: var(--color-background-form);
+        background-color: var(--color-bg-form);
         margin: auto auto;  
     }
 
     .reservation__title{
         font-family: var(--font-family-title);
-        font-size: var(--size-title);
-        color: var(--color-title);
+        font-size: 1.4em;
+        color: var(--color-gold-cta);
         text-wrap: balance;
         padding: 10px;
     }
@@ -96,7 +70,7 @@
         flex-direction: column;
         gap: 1em;
     }
-    .reservation__buttons{
+    .reservation__button{
         min-height: 8vh;
         display: flex;
         flex-direction: column;
@@ -107,19 +81,16 @@
         font-family: var(--font-family-text);
         width: 30vw;
         margin: 0 auto;
-        background-color: var(--color-background-botton);
+        background-color: var(--color-gold-cta);
         border-radius: 15px;
+    }
+    #confirm:hover{
+        background-color: oklch(0.6135 0.1845 142.52);  
     }
    
     @media screen and (min-width : 768px) {
-        .wrapper{
-            background-image: url('../../public/images/reservation_background.jpg');
-            
-            background-position:center ;
-            background-size: cover;
-        }
         .reservation__title{
-            font-size: var(--size-title-tablet);
+            font-size: 1.8rem;
             text-wrap: pretty;
         }
         .reservation__items{
@@ -134,7 +105,7 @@
     }
     @media screen and (min-width : 992px) {
         .reservation__title{
-            font-size: var(--size-title-desktop);
+            font-size: 2rem;;
         }
         .reservation{
             gap: 3.6em;
@@ -149,16 +120,10 @@
             font-size: var(--size-text-desktop);
             width: 30vw;
         }
-        #confirm:hover{
-            background-color: oklch(0.6135 0.1845 142.52);
-            
-        }
     }
 
     @media screen and (min-width : 1200px) {
         .reservation{
-            width: 80vw;
-            height: 85vh;
             gap: 4em;
         }
         #confirm{
@@ -169,18 +134,16 @@
     }
     @media screen and (min-width : 1920px){
         .reservation__title{
-            font-size: 3.8em;
+            font-size: 3rem;
         }
         .reservation{
-            width: 75vw;
-            height: 85vh;
             gap: 2em;
         }
         #confirm{
             margin-top: 1em;
             width: 30vw;
             height: 7vh;
-            font-size: 3em;
+            font-size: 2rem;
         }
     }
 

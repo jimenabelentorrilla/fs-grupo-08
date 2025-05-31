@@ -54,4 +54,29 @@ const { title } = Astro.props;
 	a {
 		text-decoration:none;
 	}
+	:root{
+        /***Colors*/
+        --color-bg-wrapper : oklch(0.232 0.0069 161.58);  
+        --color-bg-form : oklch(0.3387 0.0069 183.81); 
+
+        --color-gold-cta: oklch(0.69 0.1154 85.34); /**color doradito - call to action*/ 
+
+        /***Fonts*/
+        --font-family-title : "Libre Baskerville", serif; /*Primary*/ 
+        --font-family-text : "Roboto", sans-serif; /*Secondary*/
+
+       
+        --color-text : oklch(0.9312 0.0168 78.99);
+        --size-text: 0.9rem;
+        --size-text-tablet: 1.1rem;
+        --size-text-desktop: 1.5rem;
+        --size-text-error: 0.9rem;
+        --size-text-error-tablet: 1.2rem;
+		
+        --size-input : 20vh;
+        --size-input-tablet : 22vh;
+        --size-input-height-tablet : 3.2vh;
+        --size-input-height-desktop : 5vh;
+        --size-input-width-desktop : 23vw;
+    }
 </style>
