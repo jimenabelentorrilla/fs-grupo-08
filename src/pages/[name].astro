@@ -1,0 +1,59 @@
+---
+import ProductCard from '@components/ProductCard.astro';
+import Layout from '@layouts/Layout.astro';
+import products from '../data/products.json';
+
+export function getStaticPaths(){
+
+    const paths = products.map((product) => ({
+        params: { name: product.product.toLowerCase() }, 
+        props: { image: product.image, price: product.price }
+    }))
+    
+    return paths;
+}
+
+const { name } = Astro.params;
+const { image , price } = Astro.props;
+---
+
+
+<Layout title="Restó Bodegón- Detalles de producto">
+    <div class="cnt-details">
+        <a href="/menu" class="btn-back">Volver</a>
+        <ProductCard name={name} image={image} price={price} isDetail/>
+    </div>
+    
+</Layout>
+
+<style>
+    .cnt-details{
+        padding: 2.5em;
+        display: flex;
+        flex-direction: row;
+        justify-self: center;
+        gap: 1rem;
+    }
+    .btn-back {
+        display: inline-block;
+        font-family: 'Libre Baskerville', serif;
+        font-weight: bold;
+        font-size: 0.95rem;
+        color: oklch(0.755 0.163 79.88);
+        background-color: transparent;
+        border: 2px solid oklch(0.755 0.163 79.88);
+        border-radius: 8px;
+        padding: 0.5rem 1.2rem;
+        margin-bottom: 1.5rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .btn-back:hover {
+        background-color: oklch(0.755 0.163 79.88);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+</style>

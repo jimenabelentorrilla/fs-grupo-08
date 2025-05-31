@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CategoryFilter from '../components/CategoryFilter.astro';
-import ProductCard from '../components/ProductCard.astro';
+import Layout from '@layouts/Layout.astro';
+import CategoryFilter from '@components/CategoryFilter.astro';
+import ProductCard from '@components/ProductCard.astro';
 import products from '../data/products.json';
 ---
 
@@ -13,15 +13,18 @@ import products from '../data/products.json';
     <main class="main-menu">
         <div class="container-products">
             
-            { products.map((product) => (
+           {products.map((product) => {
+                return (
+                    <ProductCard 
+                        key={product.product.toLowerCase()} 
+                        name={product.product} 
+                        price={product.price} 
+                        image={product.image} 
+                        category={product.category}
+                    />
+                );
+                })}
 
-                <ProductCard 
-                    name={product.product} 
-                    price={product.price} 
-                    image={product.image} 
-                    category={product.category} />
-
-            ))}
 
         </div>
     </main>
