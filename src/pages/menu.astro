@@ -1,0 +1,104 @@
+---
+import Layout from '@layouts/Layout.astro';
+import CategoryFilter from '@components/CategoryFilter.astro';
+import ProductCard from '@components/ProductCard.astro';
+import products from '../data/products.json';
+---
+
+<Layout title="Restó Bodegón - MENU">
+    <section class="header-menu">
+        <h1>Descubrí nuestro menú</h1>
+    </section>
+	<CategoryFilter />
+    <main class="main-menu">
+        <div class="container-products">
+            
+           {products.map((product) => {
+                return (
+                    <ProductCard 
+                        key={product.product.toLowerCase()} 
+                        name={product.product} 
+                        price={product.price} 
+                        image={product.image} 
+                        category={product.category}
+                    />
+                );
+                })}
+
+
+        </div>
+    </main>
+    <script type="module" src="/src/scripts/filter.js"></script>
+</Layout>
+
+<style>
+
+    /**Header Menu **/
+    .header-menu{
+        background: url("/banner-06.webp") no-repeat center center / cover;
+        background-attachment: fixed;
+        min-height: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-menu h1{
+        color: #FFFFFF;  /* fallback */
+        color: oklch(1 0 0);
+        font-size: 1.6rem;
+        font-family: "Libre Baskerville", serif;
+        font-weight: 600;
+        font-style: normal;
+        padding: 1em;
+    }
+
+    /**Contenedor productos */
+    .main-menu{
+        padding: 1.5rem;
+    }
+    .container-products {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        gap: 2rem;
+    }
+        /* Tablets (≥768px) */
+    @media screen and (min-width: 768px) {
+        .header-menu h1{
+            font-size: 2rem;
+        }
+        .main-menu{
+            padding: 2rem;
+        }
+        .container-products {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Desktops (≥992px) */
+    @media screen and (min-width: 992px) {
+        .header-menu h1{
+            font-size: 2.1rem;
+        }
+        .main-menu{
+            padding: 2.2rem;
+        }
+        .container-products {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    /* Large desktops (≥1200px) */
+    @media screen and (min-width: 1200px) {
+        .header-menu h1{
+            font-size: 2.5rem;
+        }
+        .main-menu{
+            padding: 2.5rem;
+        }
+        .container-products {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+</style>
