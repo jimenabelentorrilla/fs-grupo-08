@@ -21,7 +21,7 @@
                         </section>
                         <section class="reservation__button">
                             <button id="confirm" type="submit">Confirmar Reserva</button>
-                        </section>
+                        </section>w
                     </form>
         </main>
     </div> 
@@ -37,6 +37,9 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        
     }
 
     .reservation{
@@ -49,7 +52,7 @@
         border: solid 10px grey;
         gap: 0.5em;
         background-color: var(--color-bg-form);
-        margin: auto auto;  
+        margin: auto auto;
     }
 
     .reservation__title{
@@ -132,6 +135,7 @@
             height: 9vh;
         }        
     }
+    
     @media screen and (min-width : 1920px){
         .reservation__title{
             font-size: 3rem;
