@@ -1,37 +1,36 @@
 ---
 import Layout from '@layouts/Layout.astro';
-
 ---
 
-<Layout title = "Sobre Nosotros">
+<Layout title="Sobre Nosotros">
     <div class="aboutus">
         <header class="aboutus__header">
-            <h1 class="aboutus__title">Sobre Nosotros!</h1>
+            <h1 class="aboutus__title">Sobre Nosotros</h1>
         </header>
         <section class="aboutus__content">
             <section class="aboutus__content__general">
-                <header class="aboutus__content__header">
+                <div class="aboutus__content__header">
                     <h2 class="aboutus__content__subtitle">Nuestra Historia</h2>
-                </header>
+                </div>
                 <figure class="aboutus__ilustration">
-                    <img class="aboutus__ilustration__img" src="../../public/images/aboutus-ilustration.jpg" alt="restaurant">
+                    <img class="aboutus__ilustration__img" src="../../public/images/aboutus-ilustration.webp" alt="restaurant">
                 </figure>
                 <p class="aboutus__content__text">
-                    Fundado en 2012 en el corazón de la ciudad, Restaurante El Sabor del Tiempo nació del sueño de unir la tradición culinaria con un enfoque moderno y cercano. Comenzamos con una pequeña cocina, algunas recetas heredadas y una gran pasión por los sabores auténticos.
-                    Con el paso de los años, hemos crecido gracias al cariño de nuestros comensales y al compromiso de brindar platos que cuentan una historia en cada bocado. Hoy, seguimos fieles a nuestra esencia: ingredientes frescos, atención al detalle y el deseo de hacer sentir a cada cliente como en casa.
-                    Ya sea en una comida casual, una cena romántica o una celebración especial, en El Sabor del Tiempo creemos que cada experiencia debe dejar una huella… como un buen recuerdo.
+                    Fundado en 2012 en el corazón de la ciudad, Bodegón Restó nació del sueño de unir la tradición culinaria con un enfoque moderno y cercano.
+                    Hoy, seguimos fieles a nuestra esencia: ingredientes frescos, atención al detalle y el deseo de hacer sentir a cada cliente como en casa.
+                    Ya sea en una comida casual, una cena romántica o una celebración especial, en Bodegon Restó creemos que cada experiencia debe dejar una huella… como un buen recuerdo.
                 </p>
             </section>
             <section class="aboutus__content__team">
-                <header class="aboutus__content__header">
+                <div class="aboutus__content__header">
                     <h2 class="aboutus__content__subtitle">Nuestro Equipo</h2>
-                </header>
+                </div>
                 <figure class="aboutus__ilustration">
-                    <img class="aboutus__ilustration__img" src="../../public/images/aboutus-team.jpg" alt="team">
+                    <img class="aboutus__ilustration__img" src="../../public/images/aboutus-team.webp" alt="team">
                 </figure>
                 <p class="aboutus__content__text">
-                    Detrás de cada plato hay talento, creatividad y una enorme dedicación. Nuestro equipo de chefs está compuesto por profesionales apasionados por la cocina, formados en distintas partes del mundo y unidos por una visión común: llevar a tu mesa lo mejor de la gastronomía con un toque único.
-                    Liderados por el chef ejecutivo Martín Del Río, nuestro equipo combina técnicas tradicionales con innovación constante. Desde platos de autor hasta reinterpretaciones de recetas clásicas, cada creación refleja el trabajo en equipo y el amor por lo que hacemos.
+                    Detrás de cada plato hay talento, creatividad y una enorme dedicación. 
+                    Nuestro equipo combina técnicas tradicionales con innovación constante. Desde platos de autor hasta reinterpretaciones de recetas clásicas, cada creación refleja el trabajo en equipo y el amor por lo que hacemos.
                     Porque para nosotros, cocinar no es solo preparar alimentos: es compartir emociones, contar historias y generar conexiones. Estamos orgullosos de tener un equipo que cocina con el alma, para personas que disfrutan con el corazón.
                 </p>
             </section>
@@ -41,14 +40,13 @@ import Layout from '@layouts/Layout.astro';
     <style>
         
         .aboutus{
-            padding: 2em;
+            padding: 3em;
             background-color: var(--color-bg-wrapper);
-            
         }
         .aboutus__header{
             display: flex;
             flex-direction: column;
-            height: 25vh;
+            padding: 2em;
             text-align: center;
             justify-content: center;
         }
@@ -67,7 +65,7 @@ import Layout from '@layouts/Layout.astro';
         .aboutus__content__general, .aboutus__content__team{
             display: flex;
             flex-direction: column;
-            gap: 1em;
+            gap: 2em;
         }
         .aboutus__content__subtitle{
             font-family: var(--font-family-title);
@@ -75,14 +73,17 @@ import Layout from '@layouts/Layout.astro';
             color: var(--color-gold-cta);
         }
         .aboutus__ilustration{
-            max-width: 100vw;
+            max-width: 100%;
+	        display: block;
         }
         .aboutus__ilustration__img{
-            width: 100vw;
+            width: 100%;
+            height: auto;
         }
         .aboutus__content__text{
             font-family: var(--font-family-text);
             font-size: 1.4em;
+            line-height: 1.7;
             text-wrap: balance;
             color: grey;
         }
@@ -94,32 +95,24 @@ import Layout from '@layouts/Layout.astro';
                 grid-template-columns: 50% 50% ;
                 grid-template-rows: 1fr;
                 gap: 1em;
+                align-items: center;
             }
             .aboutus__content__header{
                 grid-column: 1/-1;
             }
-            .aboutus__ilustration{
-                grid-column: 1/2;
-                
-                height: 100%;
-            }
             .aboutus__content__text{
                 grid-column: 2/3;
                 max-width: 98%;
-            }
-            .aboutus__ilustration__img{
-                height: 500px;
+                padding: 2em;
             }
         }
         @media screen and (min-width : 1400px) {
-            .aboutus__ilustration__img{
-                height: 410px;
+            .aboutus__content__text{
+                grid-column: 2/3;
+                max-width: 98%;
+                padding: 2em;
             }
         }
-        @media screen and (min-width : 1650px) {
-        .aboutus__ilustration__img{
-            height: 350px;
-        }
-        }
+        
     </style>
 </Layout>

@@ -3,7 +3,6 @@ import Layout from '@layouts/Layout.astro';
 import CategoryFilter from '@components/CategoryFilter.astro';
 import ProductCard from '@components/ProductCard.astro';
 import products from '../data/products.json';
-
 ---
 
 <Layout title="Restó Bodegón - Menú">
@@ -42,7 +41,8 @@ import products from '../data/products.json';
         justify-content: center;
         flex-direction: column;
         padding: 2em;
-        height: calc(100vh - 90px);
+        height: calc(95vh - 90px);
+        align-items: center;
     }
     .cnt-title-menu{
         display: flex;
@@ -71,6 +71,9 @@ import products from '../data/products.json';
     }
     /* Mobile  (<= 768px) */
     @media screen and (max-width: 767.99px){
+        .cnt-title-menu h1{
+            font-size: 2.7rem;
+        }
     }
         /* Tablets (≥768px) */
     @media screen and (min-width: 768px) {
