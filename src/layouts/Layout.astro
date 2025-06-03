@@ -1,6 +1,8 @@
 ---
 import { ClientRouter } from "astro:transitions";
 const { title } = Astro.props;
+import Nav from '@components/Nav.astro';
+import Footer from '@components/Footer.astro';
 ---
 
 
@@ -22,7 +24,9 @@ const { title } = Astro.props;
 		<ClientRouter />
 	</head>
 	<body>
+		<Nav />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
@@ -39,8 +43,12 @@ const { title } = Astro.props;
 	}
 
 	body {
-		min-height: 100vh;
 		line-height: 1.5;
+		overflow-x: hidden;
+		display: grid;
+		grid-template-rows: 1fr auto;
+		min-height: 100vh;
+		padding-top: 80px; /* para compensar nav fija */
 	}
 
 	img, picture, video, canvas, svg {
@@ -80,3 +88,31 @@ const { title } = Astro.props;
         --size-input-width-desktop : 23vw;
     }
 </style>
+
+<script>
+
+	/** Corregir bug, solo funciona al hacer click una sola vez **/ 
+	document.addEventListener('DOMContentLoaded', () => {
+	const buttons = document.querySelectorAll('.button-menu');
+	const products = document.querySelectorAll('.product');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Clase activa
+      buttons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+
+      const category = button.id;
+
+      products.forEach(product => {
+        const productCategory = product.dataset.category.toLowerCase();
+        if (category === 'todos' || category === productCategory) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
