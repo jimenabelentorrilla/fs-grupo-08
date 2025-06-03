@@ -1,12 +1,15 @@
 ---
     import {INPUTS} from "../mocks/Data.astro"; 
-    import Input from "../components/Input.astro";
+    import Input from "@components/Input.astro";
     import Layout from '@layouts/Layout.astro';
+    import Nav from '@components/Nav.astro';
+
 ---
 
 
 <Layout title="Restó Bodegón - Reservas">
     <div class="wrapper">
+        <Nav />
         <main class="reservation">
                 <header class="reservation__header">
                         <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
@@ -21,7 +24,7 @@
                         </section>
                         <section class="reservation__button">
                             <button id="confirm" type="submit">Confirmar Reserva</button>
-                        </section>w
+                        </section>
                     </form>
         </main>
     </div> 
@@ -39,7 +42,8 @@
         background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
-        
+        padding: 2em;
+        gap: 1em;
     }
 
     .reservation{

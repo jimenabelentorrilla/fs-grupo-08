@@ -1,9 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from '@layouts/Layout.astro';
+import Nav from '@components/Nav.astro';
 ---
 
 <Layout title = "Sobre Nosotros">
     <main class="aboutus">
+        <Nav />
         <header class="aboutus__header">
             <h1 class="aboutus__title">Sobre Nosotros!</h1>
         </header>
@@ -40,7 +42,7 @@ import Layout from "../layouts/Layout.astro"
     <style>
         
         .aboutus{
-            padding: 0 1em;
+            padding: 2em;
             background-color: var(--color-bg-wrapper);
             
         }

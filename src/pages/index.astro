@@ -1,10 +1,86 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import Nav from '@components/Nav.astro';
 
 // Paths Customizados
 // En lugar de importar con "../../../" agregamos el arroba.
 ---
 
 <Layout title="Restó Bodegón">
-	
+	<header class="cont-header">
+        <Nav />
+        <div class="header-text">
+            <h1>Bienvenido a <br>Restó Bodegón</h1>
+            <a href="/menu">Ver el menú</a>
+        </div>
+    </header>
+    <main>
+
+    </main>
 </Layout>
+
+<style>
+    .cont-header{
+        min-height: 100vh;
+        background-image: url("../../public/banner-02.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; 
+        padding: 2em;
+    }
+    .header-text{
+        min-height: 80vh;
+        display:flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .header-text h1{
+        color: #ffffff;
+        font-family: var(--font-family-title);
+        font-size: 3.8rem;
+        margin-bottom: 0.5em;
+    }
+    .header-text a{
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        font-family: var(--font-family-text);
+        font-weight: 600;
+        padding: 12px 24px;
+        text-decoration: none;
+        transition: ease .5s;
+    }
+    .header-text a:hover{
+        background-color: #ffffff;
+        color: #222222;
+    }
+
+    /* Mobile  (<= 768px) */
+    @media screen and (max-width: 767.99px){
+        .header-text h1{
+            font-size: 2.4rem;
+        }
+    }
+        /* Tablets (≥768px) */
+    @media screen and (min-width: 768px) {
+        .header-text h1{
+            font-size: 3.2rem;
+        }
+    }
+
+    /* Desktops (≥992px) */
+    @media screen and (min-width: 992px) {
+        .header-text h1{
+            font-size: 3.5rem;
+        }
+    }
+
+    /* Large desktops (≥1200px) */
+    @media screen and (min-width: 1200px) {
+        .header-text h1{
+            font-size: 3.8rem;
+        }
+    }
+
+
+</style>
