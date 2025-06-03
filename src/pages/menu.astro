@@ -7,7 +7,9 @@ import products from '../data/products.json';
 
 <Layout title="Restó Bodegón - Menú">
     <section class="header-menu">
-        <h1>Descubrí nuestro menú</h1>
+        <div class="cnt-title-menu">
+            <h1>Descubrí nuestro menú</h1>
+        </div>
     </section>
 	<CategoryFilter />
     <main class="main-menu">
@@ -24,29 +26,34 @@ import products from '../data/products.json';
                     />
                 );
                 })}
-
-
         </div>
     </main>
-    <script type="module" src="/src/scripts/filter.js"></script>
 </Layout>
 
 <style>
-
     /**Header Menu **/
     .header-menu{
-        background: url("/banner-06.webp") no-repeat center center / cover;
-        background-attachment: fixed;
-        min-height: 40vh;
+        background: url("/banner-06.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; 
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2em;
+        height: calc(95vh - 90px);
+        align-items: center;
+    }
+    .cnt-title-menu{
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .header-menu h1{
+    .cnt-title-menu h1{
         color: #FFFFFF;  /* fallback */
         color: oklch(1 0 0);
-        font-size: 1.6rem;
-        font-family: "Libre Baskerville", serif;
+        /**font-size: 1.6rem;*/
+        font-family: var(--font-family-title);
         font-weight: 600;
         font-style: normal;
         padding: 1em;
@@ -62,9 +69,15 @@ import products from '../data/products.json';
         justify-items: center;
         gap: 2rem;
     }
+    /* Mobile  (<= 768px) */
+    @media screen and (max-width: 767.99px){
+        .cnt-title-menu h1{
+            font-size: 2.7rem;
+        }
+    }
         /* Tablets (≥768px) */
     @media screen and (min-width: 768px) {
-        .header-menu h1{
+        .cnt-title-menu h1{
             font-size: 2rem;
         }
         .main-menu{
@@ -77,7 +90,7 @@ import products from '../data/products.json';
 
     /* Desktops (≥992px) */
     @media screen and (min-width: 992px) {
-        .header-menu h1{
+        .cnt-title-menu h1{
             font-size: 2.1rem;
         }
         .main-menu{
@@ -90,7 +103,7 @@ import products from '../data/products.json';
 
     /* Large desktops (≥1200px) */
     @media screen and (min-width: 1200px) {
-        .header-menu h1{
+        .cnt-title-menu h1{
             font-size: 2.5rem;
         }
         .main-menu{

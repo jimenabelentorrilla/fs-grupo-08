@@ -44,7 +44,7 @@ const { name, options, errorMessage } = Astro.props;
   @media screen and (min-width : 768px) {
     select{
       width: var(--size-input-tablet);
-      font-size: 1.7em;
+      font-size: 1.2em;
       height: var(--size-input-height-tablet);
     }
   }
@@ -58,6 +58,36 @@ const { name, options, errorMessage } = Astro.props;
     .option{
       margin: auto 0;
     }
+  }
+  @media screen and (min-width : 1160px) {
+    select{
+      width: 21vw;
+    }
+  }  
+  @media screen and (min-width : 1300px) {
+    select{
+      width: 21vw;
+    }
+  }
+  @media screen and (min-width : 1370px) {
+    select{
+      width: 19vw;
+    }
+  }
+  @media screen and (min-width : 1400px) {
+    select{
+      width: 19vw;
+    }
+  }
+  @media screen and (min-width : 1500px){
+    select{
+      width: 16vw;
+    }
+  }
+  @media screen and (min-width : 1650px) {
+  select{
+    width: 15vw;
+  }
   }
   @media screen and (min-width : 1920px){
     select{

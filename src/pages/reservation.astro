@@ -1,6 +1,6 @@
 ---
     import {INPUTS} from "../mocks/Data.astro"; 
-    import Input from "../components/Input.astro";
+    import Input from "@components/Input.astro";
     import Layout from '@layouts/Layout.astro';
 ---
 
@@ -8,21 +8,21 @@
 <Layout title="Restó Bodegón - Reservas">
     <div class="wrapper">
         <main class="reservation">
-                <header class="reservation__header">
-                        <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
-                </header>
-                    <form class="reservation__form" novalidate id="reservation__form">
-                        <section class="reservation__items">
-                            {
-                                INPUTS.map( (input) => {
-                                    return <Input {...input}/>
-                                })
-                            }
-                        </section>
-                        <section class="reservation__button">
-                            <button id="confirm" type="submit">Confirmar Reserva</button>
-                        </section>
-                    </form>
+            <header class="reservation__header">
+                <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
+            </header>
+            <form class="reservation__form" novalidate id="reservation__form">
+                <section class="reservation__items">
+                    {
+                        INPUTS.map( (input) => {
+                            return <Input {...input}/>
+                        })
+                    }
+                </section>
+                <section class="reservation__button">
+                    <button id="confirm" type="submit">Confirmar Reserva</button>
+                </section>
+            </form>
         </main>
     </div> 
 </Layout>
@@ -37,6 +37,10 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        gap: 1em;
     }
 
     .reservation{
@@ -49,7 +53,7 @@
         border: solid 10px grey;
         gap: 0.5em;
         background-color: var(--color-bg-form);
-        margin: auto auto;  
+        margin: auto auto;
     }
 
     .reservation__title{
@@ -132,6 +136,7 @@
             height: 9vh;
         }        
     }
+    
     @media screen and (min-width : 1920px){
         .reservation__title{
             font-size: 3rem;

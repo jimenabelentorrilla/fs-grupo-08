@@ -7,7 +7,7 @@ const { name, price, image, isDetail = false } = Astro.props;
             <div class:list={[{"cnt-flex": isDetail}]}>
                 <div>
                     <div class:list={['product-img', { "product-img-details": isDetail }]}>
-                        <img class='product-img-img' src={image} alt={name} transition:name={name.toLowerCase()}  />
+                        <img class='product-img-img' src={image} alt={name}  />
                     </div>
                     <div class:list={['product-details', { "product-det-details" : isDetail}]}>
                         <h3 class:list={['product-title', { "product-title-details": isDetail }]}>{name}</h3>
@@ -76,7 +76,7 @@ const { name, price, image, isDetail = false } = Astro.props;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: var(--font-family-title);
         font-style: normal;
     }
 
@@ -149,7 +149,7 @@ const { name, price, image, isDetail = false } = Astro.props;
         align-items: center;
         font-size: 1rem;
         color: #333;
-        font-family: "Roboto", sans-serif;
+        font-family: var(--font-family-text);
         gap: 0.5rem;
     }
 
