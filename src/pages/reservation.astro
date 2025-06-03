@@ -2,30 +2,27 @@
     import {INPUTS} from "../mocks/Data.astro"; 
     import Input from "@components/Input.astro";
     import Layout from '@layouts/Layout.astro';
-    import Nav from '@components/Nav.astro';
-
 ---
 
 
 <Layout title="Restó Bodegón - Reservas">
     <div class="wrapper">
-        <Nav />
         <main class="reservation">
-                <header class="reservation__header">
-                        <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
-                </header>
-                    <form class="reservation__form" novalidate id="reservation__form">
-                        <section class="reservation__items">
-                            {
-                                INPUTS.map( (input) => {
-                                    return <Input {...input}/>
-                                })
-                            }
-                        </section>
-                        <section class="reservation__button">
-                            <button id="confirm" type="submit">Confirmar Reserva</button>
-                        </section>
-                    </form>
+            <header class="reservation__header">
+                <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
+            </header>
+            <form class="reservation__form" novalidate id="reservation__form">
+                <section class="reservation__items">
+                    {
+                        INPUTS.map( (input) => {
+                            return <Input {...input}/>
+                        })
+                    }
+                </section>
+                <section class="reservation__button">
+                    <button id="confirm" type="submit">Confirmar Reserva</button>
+                </section>
+            </form>
         </main>
     </div> 
 </Layout>

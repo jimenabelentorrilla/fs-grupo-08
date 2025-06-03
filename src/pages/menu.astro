@@ -3,13 +3,11 @@ import Layout from '@layouts/Layout.astro';
 import CategoryFilter from '@components/CategoryFilter.astro';
 import ProductCard from '@components/ProductCard.astro';
 import products from '../data/products.json';
-import Nav from '@components/Nav.astro';
 
 ---
 
 <Layout title="Restó Bodegón - Menú">
     <section class="header-menu">
-        <Nav />
         <div class="cnt-title-menu">
             <h1>Descubrí nuestro menú</h1>
         </div>
@@ -31,7 +29,6 @@ import Nav from '@components/Nav.astro';
                 })}
         </div>
     </main>
-    <script type="module" src="/src/scripts/filter.js"></script>
 </Layout>
 
 <style>
@@ -45,10 +42,9 @@ import Nav from '@components/Nav.astro';
         justify-content: center;
         flex-direction: column;
         padding: 2em;
-        /*** min-height: 80vh;*/
+        height: calc(100vh - 90px);
     }
     .cnt-title-menu{
-        /*** min-height: 80vh;*/
         display: flex;
         justify-content: center;
         align-items: center;
@@ -75,15 +71,9 @@ import Nav from '@components/Nav.astro';
     }
     /* Mobile  (<= 768px) */
     @media screen and (max-width: 767.99px){
-        .header-menu, .cnt-title-menu{
-            min-height: 30vh;
-        }
     }
         /* Tablets (≥768px) */
     @media screen and (min-width: 768px) {
-        .header-menu, .cnt-title-menu{
-            min-height: 50vh;
-        }
         .cnt-title-menu h1{
             font-size: 2rem;
         }
@@ -97,9 +87,6 @@ import Nav from '@components/Nav.astro';
 
     /* Desktops (≥992px) */
     @media screen and (min-width: 992px) {
-        .header-menu, .cnt-title-menu{
-            min-height: 60vh;
-        }
         .cnt-title-menu h1{
             font-size: 2.1rem;
         }
@@ -113,9 +100,6 @@ import Nav from '@components/Nav.astro';
 
     /* Large desktops (≥1200px) */
     @media screen and (min-width: 1200px) {
-        .header-menu, .cnt-title-menu{
-            min-height: 80vh;
-        }
         .cnt-title-menu h1{
             font-size: 2.5rem;
         }

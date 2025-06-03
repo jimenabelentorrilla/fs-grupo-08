@@ -1,6 +1,5 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Nav from '@components/Nav.astro';
 
 // Paths Customizados
 // En lugar de importar con "../../../" agregamos el arroba.
@@ -8,32 +7,28 @@ import Nav from '@components/Nav.astro';
 
 <Layout title="Restó Bodegón">
 	<header class="cont-header">
-        <Nav />
         <div class="header-text">
             <h1>Bienvenido a <br>Restó Bodegón</h1>
             <a href="/menu">Ver el menú</a>
         </div>
-    </header>
-    <main>
-
-    </main>
+    </header>   
 </Layout>
 
 <style>
     .cont-header{
-        min-height: 100vh;
         background-image: url("../../public/banner-02.webp");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover; 
         padding: 2em;
+        height: calc(100vh - 90px);
     }
     .header-text{
-        min-height: 80vh;
         display:flex;
         align-items: flex-start;
         flex-direction: column;
         justify-content: center;
+        padding: 2em;
     }
     .header-text h1{
         color: #ffffff;
@@ -81,6 +76,5 @@ import Nav from '@components/Nav.astro';
             font-size: 3.8rem;
         }
     }
-
 
 </style>

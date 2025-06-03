@@ -1,11 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Nav from '@components/Nav.astro';
+
 ---
 
 <Layout title = "Sobre Nosotros">
-    <main class="aboutus">
-        <Nav />
+    <div class="aboutus">
         <header class="aboutus__header">
             <h1 class="aboutus__title">Sobre Nosotros!</h1>
         </header>
@@ -36,9 +35,9 @@ import Nav from '@components/Nav.astro';
                     Porque para nosotros, cocinar no es solo preparar alimentos: es compartir emociones, contar historias y generar conexiones. Estamos orgullosos de tener un equipo que cocina con el alma, para personas que disfrutan con el corazón.
                 </p>
             </section>
-        </section>
-    </main>
-
+        </section>   
+    </div>
+</Layout>
     <style>
         
         .aboutus{
