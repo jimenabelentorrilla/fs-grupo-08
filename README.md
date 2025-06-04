@@ -39,7 +39,9 @@ El pasaje de información entre componentes se realizó mediante **props**, prom
    cd fs-grupo-08
 
 2. Instalar las dependencias:
-    ```pnpm install
+    ```bash
+    pnpm install
 
 3. Iniciar el entorno de desarrollo:
-    ```pnpm dev
+    ```bash 
+    pnpm dev 
