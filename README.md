@@ -45,3 +45,7 @@ El pasaje de información entre componentes se realizó mediante **props**, prom
 3. Iniciar el entorno de desarrollo:
     ```bash 
     pnpm dev 
+## 👥 Integrantes
+   - 👩‍💻 Jimena Belen.
+   - 🧑‍💻 Rivera Victor.
+   - 🧑‍💻 Martinez Juan.
