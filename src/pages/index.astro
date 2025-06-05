@@ -8,7 +8,8 @@ import Layout from '@layouts/Layout.astro';
 <Layout title="Restó Bodegón">
 	<header class="cont-header">
         <div class="header-text">
-            <h1>Bienvenido a <br>Restó Bodegón</h1>
+            <h1 class="title">Bienvenido a <br>Restó Bodegón</h1>
+            <p class="title-text">Disfrutá de una experiencia gastronómica única, donde la tradición y la innovación se encuentran en cada plato.</p>
             <a href="/menu">Ver el menú</a>
         </div>
     </header>   
@@ -16,53 +17,73 @@ import Layout from '@layouts/Layout.astro';
 
 <style>
     .cont-header{
-        background-image: url("/banner-oscuro.webp");
-        background-repeat: no-repeat;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("/banner-oscuro.webp");
+        position: relative;
         background-position: center;
-        background-size: cover; 
-        padding: 2em;
-        height: calc(95vh - 90px);
+        background-size: cover;
+        background-attachment: fixed;
+        padding-left: 5%;
+        height: 100vh;
         display: flex;
         justify-content: flex-start;
         align-items: center;
     }
     .header-text{
-        display:flex;
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        padding: 2em;
+        font-family: var(--font-family-text);
+        position: relative;
+        z-index: 1;
+        color: white;
     }
     .header-text h1{
-        color: #ffffff;
         font-family: var(--font-family-title);
-        font-size: 3.8rem;
-        margin-bottom: 0.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 1em;
     }
     .header-text a{
+        display: inline-block;
+        padding: 0.8em 2em;
+        background-color: var(--color-gold-cta, #d4af37); /* Color dorado */
         color: #ffffff;
-        border: 1px solid #ffffff;
+        border-radius: 50px;
         font-family: var(--font-family-text);
         font-weight: 600;
-        padding: 12px 24px;
-        text-decoration: none;
-        transition: ease .5s;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
+
+    .header-text p{
+        font-family: var(--font-family-text);
+        padding-bottom: 1em;
+        font-size: 1.2rem;
+        margin-bottom: 2em;
+        opacity: 0.9;
+    }
+
     .header-text a:hover{
-        background-color: #ffffff;
-        color: #222222;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     /* Mobile  (<= 768px) */
     @media screen and (max-width: 767.99px){
+        .cont-header{
+            padding-top: calc(1em + 70px); /* Ajuste para el header fijo */
+            height: 100vh;
+        }
+
         .header-text h1{
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
     }
-        /* Tablets (≥768px) */
-    @media screen and (min-width: 768px) {
+    /* Tablets (≥768px) */
+    @media screen and (min-width: 768px) and (max-width: 991.99px) {
+        .cont-header{
+            padding-top: calc(1em + 70px); /* Ajuste para el header fijo */
+        }
         .header-text h1{
-            font-size: 3.2rem;
+            font-size: 2.2rem;
         }
     }
 
