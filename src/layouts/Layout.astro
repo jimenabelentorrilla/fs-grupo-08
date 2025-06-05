@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions";
 const { title } = Astro.props;
 import Nav from '@components/Nav.astro';
 import Footer from '@components/Footer.astro';
@@ -21,7 +20,6 @@ import Footer from '@components/Footer.astro';
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 		<title>{title}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<ClientRouter />
 	</head>
 	<body>
 		<Nav />
@@ -89,30 +87,3 @@ import Footer from '@components/Footer.astro';
     }
 </style>
 
-<script>
-
-	/** Corregir bug, solo funciona al hacer click una sola vez **/ 
-	document.addEventListener('DOMContentLoaded', () => {
-	const buttons = document.querySelectorAll('.button-menu');
-	const products = document.querySelectorAll('.product');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Clase activa
-      buttons.forEach(b => b.classList.remove('active'));
-      button.classList.add('active');
-
-      const category = button.id;
-
-      products.forEach(product => {
-        const productCategory = product.dataset.category.toLowerCase();
-        if (category === 'todos' || category === productCategory) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-</script>
