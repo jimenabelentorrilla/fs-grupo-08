@@ -43,52 +43,54 @@
         gap: 1em;
     }
 
-    .reservation{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        border: solid 10px grey;
-        gap: 0.5em;
-        background-color: var(--color-bg-form);
-        margin: auto auto;
-    }
-    .reservation__title{
-        font-family: var(--font-family-title);
-        font-size: 1.4em;
-        color: var(--color-gold-cta);
-        text-wrap: balance;
-        padding: 10px;
-    }
-    .reservation__form{
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-    }
+        .reservation{
+            max-height: 100vh;
+            max-width: 80vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            border: solid 10px grey;
+            gap: 0.5em;
+            background-color: var(--color-bg-form);
+            margin: auto auto;
+        }
 
-    .reservation__items{
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-    }
-    .reservation__button{
-        min-height: 8vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1em 0;
-    }
-    #confirm{
-        font-size: var(--size-text);
-        font-family: var(--font-family-text);
-        width: 22vw;
-        margin: 0 auto;
-        background-color: var(--color-gold-cta);
-        border-radius: 15px;
-    }
-    #confirm:hover{
-        background-color: oklch(0.6135 0.1845 142.52);  
-    }
+        .reservation__title{
+            font-family: var(--font-family-title);
+            font-size: 1.4em;
+            color: var(--color-gold-cta);
+            text-wrap: balance;
+            padding: 10px;
+        }
+        .reservation__form{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        .reservation__items{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        .reservation__button{
+            min-height: 8vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #confirm{
+            font-size: var(--size-text);
+            font-family: var(--font-family-text);
+            width: 30vw;
+            margin: 0 auto;
+            background-color: var(--color-gold-cta);
+            border-radius: 15px;
+        }
+        #confirm:hover{
+            background-color: oklch(0.6135 0.1845 142.52);  
+        }
     
     @media screen and (min-width : 768px) {
         .reservation__title{
