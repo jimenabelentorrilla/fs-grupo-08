@@ -6,12 +6,13 @@ interface Props{
     name : string;
     type : string;
     errorMessage : string;
+    nameClass : string;
     options :[string] ;
 }
 
-const { label, name, type, errorMessage,options } = Astro.props;
+const { label, name, type, errorMessage, nameClass,options } = Astro.props;
 ---
-  <div class="reservation__item">
+  <div class={nameClass}>
       <label for={name}>{label}</label>
       {
         type === 'select' ? (
