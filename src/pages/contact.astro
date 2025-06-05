@@ -1,0 +1,212 @@
+---
+import { DataContactInput } from "src/mocks/DataContact.astro"
+import Layout from "../layouts/Layout.astro"
+import Input from "@components/Input.astro"
+---
+
+<Layout>
+    <main class="contact">
+        <header class="contact__header">
+            <h1 class="contact__title">Contactenos</h1>
+        </header>
+        <section class="contact__info">
+            <h2 class="contact__subtitle">Por favor complete los campos para poder contactarnos</h2>
+            <form class="contact__form" id="contact__form" novalidate>
+                <section class="contact__items">
+                    {
+                        DataContactInput.map( (input) =>{
+                            return <Input {...input}></Input>
+                        } )
+                    }
+                    <label class="contact__label" for="message">Mensaje</label>
+                    <textarea name="message" id="message" rows="4" placeholder="Ingrese su mensaje o comentario..."></textarea>
+                </section>
+                <button type="submit" id="contact_send" >Enviar</button>
+            </form>
+            <p class="contact__thank">Muchas gracias por su mensaje!!!</p>
+        </section>
+    </main>
+
+    <style>
+        .contact{
+            background-color: var(--color-bg-wrapper);
+        }
+        .contact__title{
+            text-align: center;
+            font-family: var(--font-family-title);
+            font-size: 2em;
+            padding: 0.5em 0;
+            color: var(--color-gold-cta);
+        }
+        .contact__subtitle{
+            font-family: var(--font-family-text);
+            font-size: 1.3em;
+            color: rgb(153, 157, 119);
+            text-align: center;
+        }
+        .contact__form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+            padding: 1em 0;
+        }
+        .contact__items{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5em;
+        }
+        .contact__label{
+            font-family: var(--font-family-text);
+            font-size: var(--size-text);
+            color: oklch(0.74 0.0168 138.28);
+        }
+        #message{
+            background-color: oklch(0.3987 0.0291 48.28);
+            line-height: 1;
+            color: white;
+            width: 70vw;
+        }
+        #contact_send{
+            border-radius: 18px;
+            width: 150px;
+            border: none;
+            background-color: rgb(25, 133, 50);
+            font-family: var(--font-family-text);
+            font-size: 1.2em;
+        }
+        .contact__thank{
+            font-family: var(--font-family-text);
+            text-align: center;
+            color: var(--color-gold-cta);
+            font-size: 1.8em;
+        }
+        #contact_send:hover{
+            background-color: rgb(39, 218, 19);
+        }
+        @media screen and (min-width : 768px ) {
+            #message{
+                width: 55vw;
+            }
+            .contact__label{
+                font-size: var(--size-text-tablet);
+            }
+            #message{
+                font-size: var(--size-text-tablet);
+            }
+            .contact__thank{
+                padding-bottom: 1em;
+                font-size: 2em;
+            }
+        }
+
+        @media screen and (min-width : 992px) {
+            .contact__title{
+                font-size: 3.2em;
+            }
+            .contact__subtitle{
+                font-size: 2.1em;
+            }
+            .contact__label{
+                font-size: var(--size-text-desktop);
+            }
+            #message{
+                font-size: var(--size-text-desktop);
+            }
+            #contact_send{
+                font-size: 1.6em;
+                width: 20vw;
+            }
+        }
+
+        @media screen and (min-width : 1200px) {
+            .contact__thank{
+                font-size: 3em;
+            }
+        }
+        @media screen and (min-width : 1500px) {
+            #message{
+                width: 45vw;
+            }
+        }
+        @media screen and (min-width : 1920px) {
+            .contact__label{
+                font-size: 2.4em;
+            }
+            #contact_send{
+                height: 6vh;
+                width: 15vw;
+                font-size: 1.8em;
+            }
+        }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $formInputs = document.querySelectorAll('input[name]');
+            const $form = document.getElementById('contact__form');
+            const $submitButton = document.getElementById('contact_send');
+            $submitButton.disabled = !$form.checkValidity()
+
+            const validateName = (name) => /^[a-zA-Z\s]+$/.test(name) && name.length > 0;
+            const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) && email.length > 0;
+
+            const DEFAULT_FUNCTION = (_) => true;
+            const VALIDATION_FUNCTIONS = {
+                'full-name' : validateName,
+                'email' : validateEmail
+            };
+            const isValueValid =  ( name, value ) =>{
+                const validationFunction = VALIDATION_FUNCTIONS[name] ?? DEFAULT_FUNCTION;  
+                return validationFunction(value);
+            };
+            const isAllValid = () =>{
+                let isValid = true;
+                $formInputs.forEach( (input) => {
+                    if( ! isValueValid( input.name, input.value ) )
+                    isValid = false;  
+                } )
+                return isValid;
+            };
+
+            $formInputs.forEach( (input) => {
+                input.addEventListener('input', () =>{
+                    const {name, value} = input;
+                    const isValid = isValueValid( name,value );
+                    const msjError = input.nextElementSibling;
+                    msjError.classList.toggle('hidden', isValid)
+                    const $submitButton = document.getElementById('contact_send');
+                    if( ! isValid )
+                        $submitButton.disabled = true;
+                    else
+                        $submitButton.disabled = !(isAllValid());
+                });
+
+                input.addEventListener('blur', () => {
+                    const msjError = input.nextElementSibling;
+                    msjError.classList.toggle('hidden', true);
+                });
+            });
+
+            $form.addEventListener('submit', (e) =>{
+                e.preventDefault();
+                const $msg = document.getElementById('message');
+                const formData = new FormData($form);
+                const fullName = formData.get('full-name');
+                const email = formData.get('email');
+                const message = $msg.value;
+                const newContact = {
+                    fullName,
+                    email,
+                    message
+                };
+                console.log(newContact);
+                sessionStorage.setItem( `${email}`, JSON.stringify( newContact ) );
+                $form.submit();
+            });
+
+        });
+    </script>
+</Layout>

@@ -1,5 +1,4 @@
 
-
 <nav class="nav">
     <div>
         <a class="link-logo" href="/">
@@ -14,6 +13,7 @@
         <li><a class="link-a" href="/menu">Menú</a></li>
         <li><a class="link-a" href="/aboutus">Nosotros</a></li>
         <li><a class="link-a" href="reservation">Reservas</a></li>
+        <li><a class="link-a" href="contact">Contactenos</a></li>
     </ul>
 </nav>
 <div class='offcanvas'>
@@ -48,38 +48,6 @@
     height: 70px;
     box-sizing: border-box;
 } 
-.offcanvas{
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-    transform: translateX(100%); 
-    transition: transform 0.3s ease-in-out;
-    z-index: 999;
-    overflow-y: auto;
-    padding: 2em;
-    display: flex;
-    align-items: start;
-    gap: 4em;
-    flex-direction: column;
-    padding: 16px;
-    border-bottom: 1px solid #ddd;
-    background-color: #f9f9f9;
-}
-
-.offcanvas.open{
-    transform: translateX(0%);
-}
-.close-button{
-    background: none;
-    border: none;
-    font-size: 1rem;
-    color: #000000;
-    font-weight: 600;
-    font-family: var(--font-family-title);
-}
 .link-logo{
     color: #222222;
     text-decoration: none;
@@ -99,6 +67,7 @@
     list-style: none;
     gap: 1.5em;
 }
+
 .navbar{
     flex-direction: row;
 }
@@ -119,15 +88,53 @@
 .link-a:hover{
     color: var(--color-gold-cta);
 }
+
+/**Offcanvas */ 
+
+.offcanvas{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto;
+    padding: 2em;
+    display: flex;
+    gap: 4em;
+    flex-direction: column;
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.offcanvas.open{
+    transform: translateX(0%);
+}
+.close-button{
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    display: flex;
+    color: #000000;
+    font-weight: 700;
+    font-family: var(--font-family-text);
+    justify-content: flex-start;
+}
+
     /* Mobile*/
     @media screen and (max-width: 767.99px){
         .cnt-ul{
             display:flex;
-       }
-       .link-a{
-            font-size: 1.2rem;
-       }
-       .navbar{
+        }
+        .link-a{
+            font-size: 1.6rem;
+        }
+        .navbar{
             display: none;
         } 
         .logo-nav{

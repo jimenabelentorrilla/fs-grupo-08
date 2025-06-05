@@ -28,9 +28,9 @@ const { image , price } = Astro.props;
 
 <style>
     .cnt-details{
-        padding: 2.5em;
+        padding: 1.5em;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-self: center;
         gap: 1rem;
     }
@@ -38,13 +38,12 @@ const { image , price } = Astro.props;
         display: inline-block;
         font-family: var(--font-family-title);
         font-weight: bold;
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         color: oklch(0.755 0.163 79.88);
         background-color: transparent;
         border: 2px solid oklch(0.755 0.163 79.88);
         border-radius: 8px;
         padding: 0.5rem 1.2rem;
-        margin-bottom: 1.5rem;
         text-decoration: none;
         transition: all 0.3s ease;
         align-self: flex-start;
@@ -55,5 +54,24 @@ const { image , price } = Astro.props;
         color: white;
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Desktops (≥992px) */
+    @media screen and (min-width: 992px) {
+        .cnt-details{
+            padding: 2.5rem;
+        }
+    }
+
+    /* Large desktops (≥1200px) */
+    @media screen and (min-width: 1200px) {
+        .cnt-details{
+            flex-direction: row;
+            padding: 2.5rem;
+        }
+        .btn-back{
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
     }
 </style>

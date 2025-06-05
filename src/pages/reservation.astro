@@ -6,25 +6,25 @@
 
 
 <Layout title="Restó Bodegón - Reservas">
-    <div class="wrapper">
-        <main class="reservation">
-            <header class="reservation__header">
-                <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
-            </header>
-            <form class="reservation__form" novalidate id="reservation__form">
-                <section class="reservation__items">
-                    {
-                        INPUTS.map( (input) => {
-                            return <Input {...input}/>
-                        })
-                    }
-                </section>
-                <section class="reservation__button">
-                    <button id="confirm" type="submit">Confirmar Reserva</button>
-                </section>
-            </form>
-        </main>
-    </div> 
+        <div class="wrapper">
+            <main class="reservation">
+                <header class="reservation__header">
+                    <h1 class="reservation__title">Reserve su Mesa en Cualquier Momento</h1>
+                </header>
+                <form class="reservation__form" novalidate id="reservation__form">
+                    <section class="reservation__items">
+                        {
+                            INPUTS.map( (input) => {
+                                return <Input {...input}/>
+                            })
+                        }
+                    </section>
+                    <section class="reservation__button">
+                        <button id="confirm" type="submit">Confirmar Reserva</button>
+                    </section>
+                </form>
+            </main>
+        </div> 
 
 
 <style>
@@ -42,248 +42,263 @@
         padding: 2em;
         gap: 1em;
     }
-
-    .reservation{
-        max-height: 100vh;
-        max-width: 80vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        border: solid 10px grey;
-        gap: 0.5em;
-        background-color: var(--color-bg-form);
-        margin: auto auto;
-    }
-
-    .reservation__title{
-        font-family: var(--font-family-title);
-        font-size: 1.4em;
-        color: var(--color-gold-cta);
-        text-wrap: balance;
-        padding: 10px;
-    }
-    .reservation__form{
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
-    }
-
-    .reservation__items{
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-    }
-    .reservation__button{
-        min-height: 8vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    #confirm{
-        font-size: var(--size-text);
-        font-family: var(--font-family-text);
-        width: 30vw;
-        margin: 0 auto;
-        background-color: var(--color-gold-cta);
-        border-radius: 15px;
-    }
-    #confirm:hover{
-        background-color: oklch(0.6135 0.1845 142.52);  
-    }
-   
-    @media screen and (min-width : 768px) {
-        .reservation__title{
-            font-size: 1.8rem;
-            text-wrap: pretty;
-        }
-        .reservation__items{
-            display: grid;
-            grid-template-columns: repeat( 2, 1fr );
+    <style>
+        .wrapper{
+            min-height: 100vh;
+            min-width: 100vw;
+            margin: 0 auto;
+            background-color: var(--color-bg-wrapper);
+            background-image: url('../../public/images/reservation_background.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            padding: 2em;
             gap: 1em;
         }
-        #confirm{
-            width: 25vw;
-            font-size: var(--size-text-tablet);
-        }
-    }
-    @media screen and (min-width : 992px) {
-        .reservation__title{
-            font-size: 2rem;;
-        }
+
         .reservation{
-            gap: 3.6em;
+            max-height: 100vh;
+            max-width: 80vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            border: solid 10px grey;
+            gap: 0.5em;
+            background-color: var(--color-bg-form);
+            margin: auto auto;
         }
-        .reservation__items{
-            gap: 2.3em;
+
+        .reservation__title{
+            font-family: var(--font-family-title);
+            font-size: 1.4em;
+            color: var(--color-gold-cta);
+            text-wrap: balance;
+            padding: 10px;
         }
         .reservation__form{
-            gap: 2em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
         }
-        #confirm{
-            font-size: var(--size-text-desktop);
-            width: 30vw;
-        }
-    }
 
-    @media screen and (min-width : 1200px) {
-        .reservation{
-            gap: 4em;
+        .reservation__items{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        .reservation__button{
+            min-height: 8vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         #confirm{
-            font-size: var(--size-text-desktop);
-            width: 20vw;
-            height: 9vh;
-        }        
-    }
+            font-size: var(--size-text);
+            font-family: var(--font-family-text);
+            width: 30vw;
+            margin: 0 auto;
+            background-color: var(--color-gold-cta);
+            border-radius: 15px;
+        }
+        #confirm:hover{
+            background-color: oklch(0.6135 0.1845 142.52);  
+        }
     
-    @media screen and (min-width : 1920px){
-        .reservation__title{
-            font-size: 3rem;
-        }
-        .reservation{
-            gap: 2em;
-        }
-        #confirm{
-            margin-top: 1em;
-            width: 30vw;
-            height: 7vh;
-            font-size: 2rem;
-        }
-    }
-
-</style>
-<script>
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const $formInputs = document.querySelectorAll('input[name]');
-        const $formSelects = document.querySelectorAll('select[name]')
-        const $form = document.getElementById('reservation__form');
-        const $time = document.getElementById('time');
-        const $dateInput = document.getElementById('date');
-
-        const validateName = (name) => /^[a-zA-Z\s]+$/.test(name) && name.length > 0;
-        const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) && email.length > 0;
-        const validateCellPhone = (num) =>  /^(\+54\s?9\d{10}|\d{10})$/.test(num) && num.length > 0;
-        const validateDate = (dates) => {
-            const today = new Date();
-            const day = String(today.getDate()).padStart(2, '0');       // Día del mes
-            const month = String(today.getMonth() + 1).padStart(2, '0'); // Mes (0-indexed)
-            const year = today.getFullYear();
-            let todayString = `${year}-${month}-${day}`;
-            return dates >= todayString;
-        };
-
-        const vlaidateTime = (hora) => hora != "";
-        const vlaidateAmount = (amount) => amount != "";
-        
-        const VALIDATION_FUNCTIONS = {
-            'full-name' : validateName,
-            'email' : validateEmail,
-            'cellphone' : validateCellPhone,
-            'date' : validateDate,
-            'time' : vlaidateTime,
-            'amountPer' : vlaidateAmount
-        };
-        const isValueValid =  ( name, value ) =>{
-            const validationFunction = VALIDATION_FUNCTIONS[name] ?? DEFAULT_FUNCTION;  
-            return validationFunction(value);
-        };
-        const isAllValid = () =>{
-            let isValid = true;
-            $formInputs.forEach( (input) => {
-                if( ! isValueValid( input.name, input.value ) )
-                  isValid = false;  
-            } )
-            return isValid;
-        };
-        
-        const isAllSelectValid = () => {
-            let isValid = true;
-            $formSelects.forEach( (select) =>{
-                 if( ! isValueValid( select.name, select.value ) )
-                    isValid = false;
-            } )
-            return isValid
-        }
-
-        const $submitButton = document.getElementById('confirm');
-        $submitButton.disabled = !$form.checkValidity()
-        const DEFAULT_FUNCTION = (_) => true;
-
-        $formInputs.forEach( (input) => {
-            input.addEventListener('input', () =>{
-                const {name, value} = input;
-                const isValid = isValueValid( name,value );
-                const msjError = input.nextElementSibling;
-                msjError.classList.toggle('hidden', isValid)
-                const $submitButton = document.getElementById('confirm');
-                if( ! isValid )
-                    $submitButton.disabled = true;
-                else
-                    $submitButton.disabled = !(isAllValid() && isAllSelectValid());
-            });
-
-            input.addEventListener('blur', () => {
-                const msjError = input.nextElementSibling;
-                msjError.classList.toggle('hidden', true);
-            });
-        });
-
-        $formSelects.forEach( (select) =>{
-
-            select.addEventListener('input', (e) => {
-                let isValid = isValueValid( e.target.name, e.target.value );
-                const msjError = select.nextElementSibling;
-                msjError.classList.toggle('hidden', isValid)
-                if( ! isValid )
-                    $submitButton.disabled = true;
-                else
-                    $submitButton.disabled = !(isAllValid() && isAllSelectValid());
-
-            });
-
-            select.addEventListener('blur', () =>{
-            const msjError = select.nextElementSibling;
-            msjError.classList.toggle('hidden', true);  
-            if( isAllValid() && isAllSelectValid() )
-                $submitButton.disabled = false;
-            else
-                $submitButton.disabled = true;
-            });
-        });
-
-        $form.addEventListener('submit', (e) =>{
-            e.preventDefault();
-            const formData = new FormData($form);
-            const fullName = formData.get('full-name');
-            const email = formData.get('email');
-            const cellPhone = formData.get('cellphone');
-            const amountPerson = formData.get('amountPer');
-            const date = formData.get('date');
-            const time = formData.get('time');
-            const newReservation = {
-                fullName,
-                email,
-                cellPhone,
-                amountPerson,
-                date,
-                time
-            };
-            console.log(newReservation);
-            sessionStorage.setItem( `${date}${time}`, JSON.stringify( newReservation ) );
-            $form.submit();
-        });
-
-        $time.addEventListener('mousedown', (e) =>{
-            const msjError = $time.nextElementSibling;
-            if( ! validateDate( $dateInput.value) ){
-                e.preventDefault();
-                msjError.classList.toggle('hidden', false)
-                $time.focus();
+        @media screen and (min-width : 768px) {
+            .reservation__title{
+                font-size: 1.8rem;
+                text-wrap: pretty;
             }
-                
-        });
-})
-</script>
+            .reservation__items{
+                display: grid;
+                grid-template-columns: repeat( 2, 1fr );
+                gap: 1em;
+            }
+            #confirm{
+                width: 25vw;
+                font-size: var(--size-text-tablet);
+            }
+        }
+        @media screen and (min-width : 992px) {
+            .reservation__title{
+                font-size: 2rem;;
+            }
+            .reservation{
+                gap: 3.6em;
+            }
+            .reservation__items{
+                gap: 2.3em;
+            }
+            .reservation__form{
+                gap: 2em;
+            }
+            #confirm{
+                font-size: var(--size-text-desktop);
+                width: 30vw;
+            }
+        }
+
+        @media screen and (min-width : 1200px) {
+            .reservation{
+                gap: 4em;
+            }
+            #confirm{
+                font-size: var(--size-text-desktop);
+                width: 20vw;
+                height: 9vh;
+            }        
+        }
+        
+        @media screen and (min-width : 1920px){
+            .reservation__title{
+                font-size: 3rem;
+            }
+            .reservation{
+                gap: 2em;
+            }
+            #confirm{
+                margin-top: 1em;
+                width: 30vw;
+                height: 7vh;
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const $formInputs = document.querySelectorAll('input[name]');
+            const $formSelects = document.querySelectorAll('select[name]')
+            const $form = document.getElementById('reservation__form');
+            const $time = document.getElementById('time');
+            const $dateInput = document.getElementById('date');
+
+            const validateName = (name) => /^[a-zA-Z\s]+$/.test(name) && name.length > 0;
+            const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) && email.length > 0;
+            const validateCellPhone = (num) =>  /^(\+54\s?9\d{10}|\d{10})$/.test(num) && num.length > 0;
+            const validateDate = (dates) => {
+                const today = new Date();
+                const day = String(today.getDate()).padStart(2, '0');       // Día del mes
+                const month = String(today.getMonth() + 1).padStart(2, '0'); // Mes (0-indexed)
+                const year = today.getFullYear();
+                let todayString = `${year}-${month}-${day}`;
+                return dates >= todayString;
+            };
+
+            const vlaidateTime = (hora) => hora != "";
+            const vlaidateAmount = (amount) => amount != "";
+            
+            const VALIDATION_FUNCTIONS = {
+                'full-name' : validateName,
+                'email' : validateEmail,
+                'cellphone' : validateCellPhone,
+                'date' : validateDate,
+                'time' : vlaidateTime,
+                'amountPer' : vlaidateAmount
+            };
+            const isValueValid =  ( name, value ) =>{
+                const validationFunction = VALIDATION_FUNCTIONS[name] ?? DEFAULT_FUNCTION;  
+                return validationFunction(value);
+            };
+            const isAllValid = () =>{
+                let isValid = true;
+                $formInputs.forEach( (input) => {
+                    if( ! isValueValid( input.name, input.value ) )
+                    isValid = false;  
+                } )
+                return isValid;
+            };
+            
+            const isAllSelectValid = () => {
+                let isValid = true;
+                $formSelects.forEach( (select) =>{
+                    if( ! isValueValid( select.name, select.value ) )
+                        isValid = false;
+                } )
+                return isValid
+            }
+
+            const $submitButton = document.getElementById('confirm');
+            $submitButton.disabled = !$form.checkValidity()
+            const DEFAULT_FUNCTION = (_) => true;
+
+            $formInputs.forEach( (input) => {
+                input.addEventListener('input', () =>{
+                    const {name, value} = input;
+                    const isValid = isValueValid( name,value );
+                    const msjError = input.nextElementSibling;
+                    msjError.classList.toggle('hidden', isValid)
+                    const $submitButton = document.getElementById('confirm');
+                    if( ! isValid )
+                        $submitButton.disabled = true;
+                    else
+                        $submitButton.disabled = !(isAllValid() && isAllSelectValid());
+                });
+
+                input.addEventListener('blur', () => {
+                    const msjError = input.nextElementSibling;
+                    msjError.classList.toggle('hidden', true);
+                });
+            });
+
+            $formSelects.forEach( (select) =>{
+
+                select.addEventListener('input', (e) => {
+                    let isValid = isValueValid( e.target.name, e.target.value );
+                    const msjError = select.nextElementSibling;
+                    msjError.classList.toggle('hidden', isValid)
+                    if( ! isValid )
+                        $submitButton.disabled = true;
+                    else
+                        $submitButton.disabled = !(isAllValid() && isAllSelectValid());
+
+                });
+
+                select.addEventListener('blur', () =>{
+                const msjError = select.nextElementSibling;
+                msjError.classList.toggle('hidden', true);  
+                if( isAllValid() && isAllSelectValid() )
+                    $submitButton.disabled = false;
+                else
+                    $submitButton.disabled = true;
+                });
+            });
+
+            $form.addEventListener('submit', (e) =>{
+                e.preventDefault();
+                const formData = new FormData($form);
+                const fullName = formData.get('full-name');
+                const email = formData.get('email');
+                const cellPhone = formData.get('cellphone');
+                const amountPerson = formData.get('amountPer');
+                const date = formData.get('date');
+                const time = formData.get('time');
+                const newReservation = {
+                    fullName,
+                    email,
+                    cellPhone,
+                    amountPerson,
+                    date,
+                    time
+                };
+                console.log(newReservation);
+                sessionStorage.setItem( `${date}${time}`, JSON.stringify( newReservation ) );
+                $form.submit();
+            });
+
+            $time.addEventListener('mousedown', (e) =>{
+                const msjError = $time.nextElementSibling;
+                if( ! validateDate( $dateInput.value) ){
+                    e.preventDefault();
+                    msjError.classList.toggle('hidden', false)
+                    $time.focus();
+                }
+                    
+            });
+    })
+    </script>
 </Layout>
