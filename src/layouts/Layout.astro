@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions";
 const { title } = Astro.props;
 import Nav from '@components/Nav.astro';
 import Footer from '@components/Footer.astro';
@@ -15,13 +14,12 @@ import Footer from '@components/Footer.astro';
 		<meta name="generator" content={Astro.generator} />
 		<!---FONTS -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
- 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 		<!---ICONS- FONTAWESOME-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 		<title>{title}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<ClientRouter />
 	</head>
 	<body>
 		<Nav />
@@ -43,12 +41,13 @@ import Footer from '@components/Footer.astro';
 	}
 
 	body {
-		line-height: 1.5;
+		font-family: Georgia, serif;
+		line-height: 1.6;
 		overflow-x: hidden;
 		display: grid;
 		grid-template-rows: 1fr auto;
 		min-height: 100vh;
-		padding-top: 80px; /* para compensar nav fija */
+		padding-top: 0; /* para compensar nav fija */
 	}
 
 	img, picture, video, canvas, svg {
