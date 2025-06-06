@@ -20,7 +20,6 @@ const { image , price } = Astro.props;
 
 <Layout title="Restó Bodegón- Detalles de producto">
     <div class="cnt-details">
-        <a href="/menu" class="btn-back">Volver</a>
         <ProductCard name={name} image={image} price={price} isDetail/>
     </div>
     
@@ -28,11 +27,12 @@ const { image , price } = Astro.props;
 
 <style>
     .cnt-details{
-        padding: 1.5em;
         display: flex;
-        flex-direction: column;
-        justify-self: center;
+        justify-content: center;
+        align-items: center;
         gap: 1rem;
+        min-height: 100vh;
+        padding: 6.5rem 2.5rem;
     }
     .btn-back {
         display: inline-block;
@@ -58,17 +58,12 @@ const { image , price } = Astro.props;
 
     /* Desktops (≥992px) */
     @media screen and (min-width: 992px) {
-        .cnt-details{
-            padding: 2.5rem;
-        }
+        
     }
 
     /* Large desktops (≥1200px) */
     @media screen and (min-width: 1200px) {
-        .cnt-details{
-            flex-direction: row;
-            padding: 2.5rem;
-        }
+        
         .btn-back{
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
