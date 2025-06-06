@@ -8,9 +8,9 @@ import Layout from '@layouts/Layout.astro';
 <Layout title="Restó Bodegón">
 	<header class="cont-header">
         <div class="header-text">
-            <h1 class="title">Bienvenido a <br>Restó Bodegón</h1>
-            <p class="title-text">Disfrutá de una experiencia gastronómica única, donde la tradición y la innovación se encuentran en cada plato.</p>
-            <a href="/menu">Ver el menú</a>
+            <h1 class="header-title">Bienvenido a <br>Restó Bodegón</h1>
+            <p class="header-paragraph">Disfrutá de una experiencia gastronómica única, donde la tradición <br /> y la innovación se encuentran en cada plato.</p>
+            <a class="header-btn" href="/menu">Ver el menú</a>
         </div>
     </header>   
 </Layout>
@@ -30,17 +30,26 @@ import Layout from '@layouts/Layout.astro';
         align-items: center;
     }
     .header-text{
-        font-family: var(--font-family-text);
-        position: relative;
-        z-index: 1;
         color: white;
+        padding: 1em;
+        display: flex;
+        flex-direction:column;
+        align-items: flex-start;
+        gap: 1.4em;
     }
-    .header-text h1{
+    .header-title{
         font-family: var(--font-family-title);
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        margin-bottom: 1em;
+        line-height: 1.5;
     }
-    .header-text a{
+    .header-paragraph{
+        font-family: var(--font-family-text);
+        font-size: 1.2rem;
+        opacity: 0.9;
+        line-height: 1.8;
+    }
+
+    .header-btn{
         display: inline-block;
         padding: 0.8em 2em;
         background-color: var(--color-gold-cta, #d4af37); /* Color dorado */
@@ -48,20 +57,13 @@ import Layout from '@layouts/Layout.astro';
         border-radius: 50px;
         font-family: var(--font-family-text);
         font-weight: 600;
+        font-size: 1rem;
         transition: all 0.3s ease;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
 
-    .header-text p{
-        font-family: var(--font-family-text);
-        padding-bottom: 1em;
-        font-size: 1.2rem;
-        margin-bottom: 2em;
-        opacity: 0.9;
-    }
-
-    .header-text a:hover{
+    .header-btn:hover{
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
@@ -72,9 +74,11 @@ import Layout from '@layouts/Layout.astro';
             padding-top: calc(1em + 70px); /* Ajuste para el header fijo */
             height: 100vh;
         }
-
-        .header-text h1{
-            font-size: 1.8rem;
+        .header-title{
+            font-size: 2rem;
+        }
+        .header-paragraph{
+            font-size: 1rem;
         }
     }
     /* Tablets (≥768px) */
@@ -82,22 +86,42 @@ import Layout from '@layouts/Layout.astro';
         .cont-header{
             padding-top: calc(1em + 70px); /* Ajuste para el header fijo */
         }
-        .header-text h1{
+        .header-title{
             font-size: 2.2rem;
+        }
+        .header-paragraph{
+            font-size: 1.3rem;
         }
     }
 
     /* Desktops (≥992px) */
     @media screen and (min-width: 992px) {
-        .header-text h1{
-            font-size: 3.5rem;
+        .header-title{
+            font-size: 2.8rem;
+        }
+        .header-paragraph{
+            font-size: 1.3rem;
         }
     }
 
     /* Large desktops (≥1200px) */
     @media screen and (min-width: 1200px) {
-        .header-text h1{
-            font-size: 3.8rem;
+        .header-title{
+            font-size: 3.2rem;
+        }
+        .header-paragraph{
+            font-size: 1.3rem;
+        }
+    }
+    @media screen and (min-width: 1400px) {
+        .header-title{
+            font-size: 3.5rem;
+        }
+        .header-paragraph{
+            font-size: 1.7rem;
+        }
+        .header-btn{
+           font-size: 1.5rem;
         }
     }
 
