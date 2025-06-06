@@ -151,4 +151,14 @@ const { label, name, type, errorMessage, nameClass,options } = Astro.props;
       font-size: 1.8em;
     }
   }
+  @media screen  and (min-height : 1150px){
+    input{
+      height: 3.5vh;
+    }
+  }
+  @media screen  and (max-height : 500px){
+    input{
+      height: 9vh;
+    }
+  }
 </style>

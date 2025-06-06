@@ -28,10 +28,12 @@
 
 
 <style>
+    body{
+        display: block;
+    }
     .wrapper{
         min-height: 100vh;
         min-width: 100vw;
-        margin: 0 auto;
         background-color: var(--color-bg-wrapper);
         background-image: url('/images/reservation_background.jpg');
         background-position: center;
@@ -40,12 +42,8 @@
         display: flex;
         flex-direction: column;
         padding: 2em;
-        gap: 1em;
     }
-
         .reservation{
-            max-height: 100vh;
-            max-width: 80vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -79,11 +77,12 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 1em;
         }
         #confirm{
             font-size: var(--size-text);
             font-family: var(--font-family-text);
-            width: 30vw;
+            width: 26vw;
             margin: 0 auto;
             background-color: var(--color-gold-cta);
             border-radius: 15px;
@@ -105,11 +104,13 @@
         #confirm{
             width: 25vw;
             font-size: var(--size-text-tablet);
+            height: 4.5vh;
+            cursor: pointer;
         }
     }
     @media screen and (min-width : 992px) {
         .reservation__title{
-            font-size: 2rem;;
+            font-size: 2rem;
         }
         .reservation{
             gap: 3.6em;
@@ -123,6 +124,7 @@
         #confirm{
             font-size: var(--size-text-desktop);
             width: 23vw;
+            height: 8vh;
         }
     }
 
@@ -132,8 +134,8 @@
         }
         #confirm{
             font-size: var(--size-text-desktop);
-            width: 18vw;
-            height: 9vh;
+            
+            
         }
     }
     
@@ -150,6 +152,11 @@
         #confirm{
             width: 20vw;
             font-size: 2rem;
+        }
+    }
+    @media screen  and (max-height : 414px){
+        #confirm{
+        height: 9vh;
         }
     }
 
