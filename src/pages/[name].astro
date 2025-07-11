@@ -7,20 +7,22 @@ export function getStaticPaths(){
 
     const paths = products.map((product) => ({
         params: { name: product.product.toLowerCase() }, 
-        props: { image: product.image, price: product.price }
+        props: { image: product.image, price: product.price, description: product.description }
     }))
     
     return paths;
 }
 
 const { name } = Astro.params;
-const { image , price } = Astro.props;
+const { image , price, description } = Astro.props;
 ---
 
 
-<Layout title="Restó Bodegón- Detalles de producto">
+<Layout title={`Restó Bodegón - ${name}`}>
+    
     <div class="cnt-details">
-        <ProductCard name={name} image={image} price={price} isDetail/>
+        <a href="./menu" class="btn-back">ATRAS</a>
+        <ProductCard name={name} image={image} price={price} description={description} isDetail/>
     </div>
     
 </Layout>
@@ -30,9 +32,12 @@ const { image , price } = Astro.props;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         gap: 1rem;
         min-height: 100vh;
         padding: 6.5rem 2.5rem;
+        margin: 2rem auto;
+        width: 70vw;
     }
     .btn-back {
         display: inline-block;

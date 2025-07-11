@@ -7,7 +7,7 @@
 
 /* Estilos generales para Contacto y Reservas */
 .contact, .reservation {
-  background: linear-gradient(to bottom, #fdf2f8, #ffffff);
+  background: linear-gradient(to bottom, #fff0f5, #ffffff);
   color: #1F2937;
   padding: 8rem 2rem;
   font-family: var(--font-family-text);
@@ -42,10 +42,11 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 2.5rem;
-  background-color: #ffffff;
+  background-color: #fffaf6; /* en vez de blanco puro */
   border-radius: 1.5rem;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 14px 36px rgba(212, 175, 55, 0.25);
 }
+
 
 .contact__items, .reservation__items {
   display: flex;
