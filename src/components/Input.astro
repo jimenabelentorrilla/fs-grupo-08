@@ -13,7 +13,7 @@ interface Props{
 const { label, name, type, errorMessage, nameClass,options } = Astro.props;
 ---
   <div class={nameClass}>
-      <label for={name}>{label}</label>
+      <label for={name}>{label}:</label>
       {
         type === 'select' ? (
           <Dropdown name={name} options={options} errorMessage={errorMessage} />
