@@ -30,102 +30,73 @@ const { label, name, type, errorMessage, nameClass,options } = Astro.props;
 
 <style>
 
-  div{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      justify-content: center;
-      gap: 0.5em;
-    }
-    label{
-      text-align: left;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #374151;
-    }
-    input{
-      padding: 1rem;
-      font-size: 1rem;
-      border: 1px solid #E5E7EB;
-      border-radius: 0.75rem;
-      background-color: #F9FAFB;
-      color: #111827;
-      transition: border 0.3s ease, box-shadow 0.3s ease;
-    }
-    input::-webkit-inner-spin-button,
-    input::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-    }
-
-    input:focus {
-      border-color: var(--color-gold-cta);
-      outline: none;
-      box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-gold-cta) 30%, white);
-    }
-
-    .error {
-      position: absolute;
-      background-color: #f44336;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-size: var(--size-text-error);
-      white-space: nowrap;
-      top: 100%;
-      left: 50%;
-      transform: translate(-50%, 8px);
-      z-index: 10;
-      box-shadow: 0 10px 6px rgba(0,0,0,0.2);
-      
-  }
-
-  .error::after {
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: 10px;
-    border-width: 6px;
-    border-style: solid;
-    border-color: transparent transparent #f44336 transparent;
-  }
-  .hidden{
-    display: none;
-  }
   div {
-    position: relative;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  gap: 0.5em;
+  position: relative;
+}
 
-  @media screen and (min-width : 768px){
-    
-    
-  }
-  @media screen and (min-width : 992px){
-    
-  }
-  @media screen and (min-width : 1160px) {
-    
-  }
-  @media screen and (min-width : 1300px) {
-    
-  }
-  @media screen and (min-width : 1370px) {
-    
-  }
-  @media screen and (min-width : 1500px){
-    
-  }
-  @media screen and (min-width : 1650px) {
- 
-  }
+label {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
 
-  @media screen and (min-width : 1920px){
-    
-  }
-  @media screen  and (min-height : 1150px){
+input {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.75rem;
+  background-color: #F9FAFB;
+  color: #111827;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
 
-  }
-  @media screen  and (max-height : 500px){
-    
-  }
+input:focus {
+  border-color: var(--color-gold-cta);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-gold-cta) 30%, white);
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.error {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(6px);
+  background-color: #ef4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.error::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 1.5rem;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent #ef4444 transparent;
+}
+
+.hidden {
+  display: none;
+}
+
 </style>

@@ -11,98 +11,54 @@ const { name, options, errorMessage } = Astro.props;
 ---
 
 <select class={name} name={name} id={name} required >
-  <option class="option" value="">Seleccione...</option>
+  <option class="option" value="">Seleccione:</option>
   {
     options.map(option => (
-      <option class="option" value={option} >{option}</option>
+      <option class="option" value={option}>{option}</option>
   ))}
 </select>
 
 <style>
-  select{
-    width: var(--size-input);
-    margin: 0 auto;
-    font-size: var(--size-text);
-    text-decoration: none;
-    border: none;
-    font-family: var(--font-family-text);
-    background-color: oklch(0.3987 0.0291 48.28);
-    color: white;
+ select {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: var(--font-family-text);
+  background-color: #F9FAFB;
+  color: #111827;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem; /* MÁS redondeado */
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25rem;
+}
 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
+select:focus {
+  border-color: var(--color-gold-cta);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-gold-cta) 30%, white);
+}
+.option {
+  font-size: 1rem;
+  font-family: var(--font-family-text);
+  color: #111827;
+  background-color: white;
+  text-align: left;
+}
 
-  .option{
-    font-size: 20px;
-    
-    color: white;
-    font-family: var(--font-family-text);
-    text-align: center;
+/* Responsive */
+@media screen and (min-width: 768px) {
+  select {
+    font-size: 1rem;
   }
-  @media screen and (min-width : 768px) {
-    select{
-      width: var(--size-input-tablet);
-      font-size: 0.9em;
-      height: var(--size-input-height-tablet);
-    }
+}
+
+@media screen and (min-width: 992px) {
+  select {
+    font-size: 1.1rem;
   }
-  @media screen and (min-width : 992px) {
-    select{
-      font-size: var(--size-text-desktop);
-      height: var(--size-input-height-desktop);
-      width: var(--size-input-width-desktop);
-      text-align: center;
-    }
-    .option{
-      margin: auto 0;
-    }
-  }
-  @media screen and (min-width : 1160px) {
-    select{
-      width: 21vw;
-    }
-  }  
-  @media screen and (min-width : 1300px) {
-    select{
-      width: 21vw;
-    }
-  }
-  @media screen and (min-width : 1370px) {
-    select{
-      width: 19vw;
-    }
-  }
-  @media screen and (min-width : 1400px) {
-    select{
-      width: 19vw;
-    }
-  }
-  @media screen and (min-width : 1500px){
-    select{
-      width: 16vw;
-    }
-  }
-  @media screen and (min-width : 1650px) {
-  select{
-    width: 15vw;
-  }
-  }
-  @media screen and (min-width : 1920px){
-    select{
-      width: 18vw;
-      height: 4vh;
-    }
-  }
-  @media screen  and (min-height : 1150px){
-    select{
-      height: 3.5vh;
-    }
-  }
-  @media screen  and (max-height : 500px){
-    select{
-      height: 9vh;
-    }
-  }
+}
 </style>

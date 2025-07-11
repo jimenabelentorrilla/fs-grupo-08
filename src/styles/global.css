@@ -1,0 +1,202 @@
+/* global.css */
+
+/* Variables de color (si usás variables CSS, si no podés definirlas en :root) */
+:root {
+  --color-gold-cta: #b58d38;
+}
+
+/* Estilos generales para Contacto y Reservas */
+.contact, .reservation {
+  background: linear-gradient(to bottom, #fdf2f8, #ffffff);
+  color: #1F2937;
+  padding: 8rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.contact__header, .reservation__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact__title, .reservation__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: var(--color-gold-cta);
+  letter-spacing: 0.5px;
+}
+
+.contact__subtitle, .reservation__subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #374151;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.contact__form, .reservation__form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.contact__items, .reservation__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact__label {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.contact__items input,
+.contact__items textarea,
+.contact__items select,
+.reservation__items input,
+.reservation__items textarea,
+.reservation__items select {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.75rem;
+  background-color: #F9FAFB;
+  color: #111827;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact__items input:focus,
+.contact__items textarea:focus,
+.contact__items select:focus,
+.reservation__items input:focus,
+.reservation__items textarea:focus,
+.reservation__items select:focus {
+  border-color: var(--color-gold-cta);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-gold-cta) 30%, white);
+}
+
+.contact__items textarea,
+.reservation__items textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#contact_send,
+#reservation_send {
+  margin-top: 1rem;
+  background-color: var(--color-gold-cta);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact_send:hover,
+#reservation_send:hover {
+  background-color: oklch(0.62 0.1154 85.34);
+  box-shadow: 0 4px 10px rgba(181, 141, 56, 0.25);
+}
+
+.contact__thank,
+.reservation__thank {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+  padding: 1.25rem 1.5rem;
+  background-color: #ecfdf5;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1rem;
+  margin-top: 0;
+  border: 2px solid #a7f3d0;
+}
+
+.contact__thank.visible,
+.reservation__thank.visible {
+  opacity: 1;
+  max-height: 300px;
+  margin-top: 1.5rem;
+}
+
+.contact__thank p,
+.reservation__thank p {
+  margin: 0;
+  color: #065f46;
+  font-weight: 600;
+}
+
+.contact__thank i,
+.reservation__thank i {
+  font-size: 1.25rem;
+  color: #059669;
+}
+
+/* Responsive */
+
+@media screen and (min-width: 768px) {
+  .contact, .reservation {
+    padding: 6rem 3rem;
+  }
+
+  .contact__form, .reservation__form {
+    max-width: 500px;
+    padding: 3rem 3.5rem;
+  }
+
+  .contact__title, .reservation__title {
+    font-size: 2.4rem;
+  }
+
+  .contact__subtitle, .reservation__subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .contact, .reservation {
+    padding: 8rem 5rem;
+  }
+
+  .contact__form, .reservation__form {
+    max-width: 600px;
+    padding: 3.5rem 4rem;
+  }
+
+  .contact__title, .reservation__title {
+    font-size: 2.5rem;
+  }
+
+  .contact__subtitle, .reservation__subtitle {
+    font-size: 1.1rem;
+  }
+
+  #contact_send, #reservation_send {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contact__form, .reservation__form {
+    max-width: 700px;
+    padding: 4rem 5rem;
+  }
+}
