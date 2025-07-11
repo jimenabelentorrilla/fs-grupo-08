@@ -42,7 +42,7 @@ import Layout from '@layouts/Layout.astro';
   <style>
     /* Reset básico */
     .about-page {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 3rem auto;
       color: #333;
       padding: 4rem 2rem;
@@ -88,6 +88,7 @@ import Layout from '@layouts/Layout.astro';
       line-height: 1.8;
       color: #444;
       font-family: var(--font-family-text);
+      order: 1;
     }
 
     .history__title, .team__title {
@@ -107,6 +108,7 @@ import Layout from '@layouts/Layout.astro';
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgb(212 175 55 / 0.25);
+      order: 2;
     }
 
     .history__image {
@@ -129,7 +131,7 @@ import Layout from '@layouts/Layout.astro';
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgb(212 175 55 / 0.25);
-      order: 2;
+      order: 1;
     }
 
     .team__image {
@@ -144,7 +146,7 @@ import Layout from '@layouts/Layout.astro';
       font-size: 1.2rem;
       line-height: 1.8;
       color: #444;
-      order: 1;
+      order: 2;
       font-family: var(--font-family-text);
     }
 

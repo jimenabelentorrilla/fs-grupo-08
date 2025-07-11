@@ -9,6 +9,7 @@ import products from '../data/products.json';
     <section class="header-menu">
         <div class="cnt-title-menu">
             <h1>Descubrí nuestro menú</h1>
+            <p class="menu-subtitle">Comida casera, sabores auténticos.</p>
         </div>
     </section>
 	<CategoryFilter />
@@ -32,31 +33,45 @@ import products from '../data/products.json';
 
 <style>
     /**Header Menu **/
-    .header-menu{
-        background: url("/banner-06.webp");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover; 
+    .header-menu {
+        position: relative;
+        background: url("/banner-06.webp") center/cover no-repeat;
         display: flex;
         justify-content: center;
-        flex-direction: column;
-        padding: 2em;
-        height: calc(95vh - 90px);
         align-items: center;
+        padding: 4rem 2rem;
+        height: calc(80vh - 90px);
+        text-align: center;
+        isolation: isolate;
+    }
+
+    .header-menu::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+        z-index: -1;
     }
     .cnt-title-menu{
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
     .cnt-title-menu h1{
         color: #FFFFFF;  /* fallback */
         color: oklch(1 0 0);
         /**font-size: 1.6rem;*/
         font-family: var(--font-family-title);
-        font-weight: 600;
+        font-weight: 700;
         font-style: normal;
         padding: 1em;
+    }
+    .menu-subtitle {
+        font-family: var(--font-family-text);
+        color: #f3f4f6;
+        font-size: 1.2rem;
+        font-weight: 300;
     }
 
     /**Contenedor productos */
@@ -64,10 +79,12 @@ import products from '../data/products.json';
         padding: 1.5rem;
     }
     .container-products {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        justify-items: center;
-        gap: 2rem;
+         display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-inline: auto;
+        max-width: 1200px;
+        padding-block: 2rem;
     }
     /* Mobile  (<= 768px) */
     @media screen and (max-width: 767.99px){
