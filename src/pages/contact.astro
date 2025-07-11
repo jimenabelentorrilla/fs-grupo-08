@@ -33,33 +33,33 @@ import Input from "@components/Input.astro"
             </form>
         </section>
     </main>
+    <!--Los estilos están en la carpeta styles -> global.css -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const $formInputs = document.querySelectorAll('input[name]');
-            const $form = document.getElementById('contact__form');
-            const $submitButton = document.getElementById('contact_send');
-            $submitButton.disabled = !$form.checkValidity()
+        const $formInputs = document.querySelectorAll('input[name]');
+        const $form = document.getElementById('contact__form');
+        const $submitButton = document.getElementById('contact_send');
+        $submitButton.disabled = !$form.checkValidity()
 
-            const validateName = (name) => /^[a-zA-Z\s]+$/.test(name) && name.length > 0;
-            const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) && email.length > 0;
+        const validateName = (name) => /^[a-zA-Z\s]+$/.test(name) && name.length > 0;
+        const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) && email.length > 0;
 
-            const DEFAULT_FUNCTION = (_) => true;
-            const VALIDATION_FUNCTIONS = {
-                'full-name' : validateName,
-                'email' : validateEmail
-            };
-            const isValueValid =  ( name, value ) =>{
-                const validationFunction = VALIDATION_FUNCTIONS[name] ?? DEFAULT_FUNCTION;  
+        const DEFAULT_FUNCTION = (_) => true;
+        const VALIDATION_FUNCTIONS = {
+            'full-name' : validateName,
+            'email' : validateEmail
+        };
+        const isValueValid =  ( name, value ) =>{
+            const validationFunction = VALIDATION_FUNCTIONS[name] ?? DEFAULT_FUNCTION;  
                 return validationFunction(value);
-            };
-            const isAllValid = () =>{
-                let isValid = true;
-                $formInputs.forEach( (input) => {
-                    if( ! isValueValid( input.name, input.value ) )
-                    isValid = false;  
-                } )
-                return isValid;
-            };
+        };
+        const isAllValid = () =>{
+            let isValid = true;
+            $formInputs.forEach( (input) => {
+                if( ! isValueValid( input.name, input.value ) )
+                isValid = false;  
+            } )
+            return isValid;
+        };
 
             $formInputs.forEach( (input) => {
                 input.addEventListener('input', () =>{
@@ -111,7 +111,5 @@ import Input from "@components/Input.astro"
             console.log(newContact);
 
             });
-
-        });
     </script>
 </Layout>

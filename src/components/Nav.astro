@@ -11,7 +11,7 @@
     <ul class='navbar'>
         <li><a class="link-a" href="/">Home</a></li>
         <li><a class="link-a" href="/menu">Menú</a></li>
-        <li><a class="link-a" href="/aboutus">Nosotros</a></li>
+        <li><a class="link-a" href="/about-us">Nosotros</a></li>
         <li><a class="link-a" href="/reservation">Reservas</a></li>
         <li><a class="link-a" href="/contact">Contactenos</a></li>
     </ul>
@@ -21,7 +21,7 @@
     <ul class='cnt-ul'>
         <li><a class="link-a" href="/">Home</a></li>
         <li><a class="link-a" href="/menu">Menú</a></li>
-        <li><a class="link-a" href="/aboutus">Nosotros</a></li>
+        <li><a class="link-a" href="/about-us">Nosotros</a></li>
         <li><a class="link-a" href="/reservation">Reservas</a></li>
         <li><a class="link-a" href="/contact">Contactenos</a></li>
     </ul>
@@ -89,14 +89,14 @@
 
 .offcanvas{
     position: fixed;
-    top: 7em;
+    top: 0;
     right: 0;
     width: 300px;
     height: 100%;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
     transform: translateX(100%); 
     transition: transform 0.3s ease-in-out;
-    z-index: 999;
+    z-index: 9999;
     overflow-y: auto;
     padding: 2em;
     display: flex;
@@ -191,20 +191,16 @@
 </style>
 
 <script>
+    const $closeBtn = document.querySelector('.close-button');
+    const $iconMenu = document.querySelector('.menu-bars');
+    const $navMobile = document.querySelector('.offcanvas');
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const $closeBtn = document.querySelector('.close-button');
-        const $iconMenu = document.querySelector('.menu-bars');
-        const $navMobile = document.querySelector('.offcanvas');
+    $iconMenu.addEventListener('click', () => {
+        $navMobile.classList.add('open');
+    })
 
-        $iconMenu.addEventListener('click', () => {
-            $navMobile.classList.add('open');
-        })
-
-        $closeBtn.addEventListener('click', () => {
-            $navMobile.classList.remove('open');
-        })
-
+    $closeBtn.addEventListener('click', () => {
+        $navMobile.classList.remove('open');
     })
 
 </script>

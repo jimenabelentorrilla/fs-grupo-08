@@ -1,6 +1,3 @@
-/* global.css */
-
-/* Variables de color (si usás variables CSS, si no podés definirlas en :root) */
 :root {
   --color-gold-cta: #b58d38;
 }
@@ -42,7 +39,7 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 2.5rem;
-  background-color: #fffaf6; /* en vez de blanco puro */
+  background-color: #fffaf6; 
   border-radius: 1.5rem;
   box-shadow: 0 14px 36px rgba(212, 175, 55, 0.25);
 }

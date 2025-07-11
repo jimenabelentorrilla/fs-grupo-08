@@ -79,12 +79,13 @@ import products from '../data/products.json';
         padding: 1.5rem;
     }
     .container-products {
-         display: grid;
+        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2.5rem;
         margin-inline: auto;
         max-width: 1200px;
         padding-block: 2rem;
+        justify-items: center;
     }
     /* Mobile  (<= 768px) */
     @media screen and (max-width: 767.99px){
@@ -133,8 +134,6 @@ import products from '../data/products.json';
 
 </style>
 <script>
-    /** Corregir bug, solo funciona al hacer click una sola vez **/ 
-	document.addEventListener('DOMContentLoaded', () => {
 	const buttons = document.querySelectorAll('.button-menu');
 	const products = document.querySelectorAll('.product');
 
@@ -156,5 +155,4 @@ import products from '../data/products.json';
       });
     });
   });
-});
 </script>

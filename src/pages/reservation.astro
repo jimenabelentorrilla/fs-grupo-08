@@ -28,9 +28,8 @@ import Layout from '@layouts/Layout.astro';
       </form>
     </section>
   </main>
-
+<!--Los estilos están en la carpeta styles -> global.css -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
       const $formInputs = document.querySelectorAll('input[name], select[name]');
       const $form = document.getElementById('reservation__form');
       const $submitButton = document.getElementById('reservation_send');
@@ -120,6 +119,5 @@ import Layout from '@layouts/Layout.astro';
         $form.reset();
         $submitButton.disabled = true;
       });
-    });
   </script>
 </Layout>
