@@ -7,145 +7,220 @@ import Input from "@components/Input.astro"
 <Layout>
     <main class="contact">
         <header class="contact__header">
-            <h1 class="contact__title">Contactenos</h1>
+            <h1 class="contact__title">Contacto</h1>
         </header>
         <section class="contact__info">
-            <h2 class="contact__subtitle">Por favor complete los campos para poder contactarnos</h2>
+            <h2 class="contact__subtitle">¿Querés hacernos una consulta o sugerencia? Completá el formulario y te responderemos a la brevedad.</h2>
             <form class="contact__form" id="contact__form" novalidate>
                 <section class="contact__items">
                     {
-                        DataContactInput.map( (input) =>{
-                            return <Input {...input}></Input>
-                        } )
+                    DataContactInput.map((input) => {
+                        return <Input {...input}></Input>
+                    })
                     }
                     <label class="contact__label" for="message">Mensaje</label>
-                    <textarea name="message" id="message" rows="4" placeholder="Ingrese su mensaje o comentario..."></textarea>
+                    <textarea
+                    name="message"
+                    id="message"
+                    rows="4"
+                    placeholder="Escribí tu mensaje acá..."></textarea>
                 </section>
-                <button type="submit" id="contact_send" >Enviar</button>
+                <button type="submit" id="contact_send">Enviar mensaje</button>
+                <div class="contact__thank">
+                    <i class="fa-solid fa-check"></i>
+                    <p>¡Gracias por escribirnos! Te contactaremos pronto.</p>
+                </div>
             </form>
-            <p class="contact__thank">Muchas gracias por su mensaje!!!</p>
         </section>
     </main>
 
     <style>
-        .contact{
-            background-color: var(--color-bg-wrapper);
-            padding: 2em;
+        .contact {
+            background: linear-gradient(to bottom, #fdf2f8, #ffffff);
+            color: #1F2937;
+            padding: 8rem 2rem;
+            font-family: 'Inter', sans-serif;
         }
-        .contact__title{
+        .contact__header {
             text-align: center;
-            font-family: var(--font-family-title);
-            font-size: 2em;
-            padding: 2em 2em 0;
+            margin-bottom: 2rem;
+        }
+        .contact__title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
             color: var(--color-gold-cta);
+            letter-spacing: 0.5px;
         }
-        .contact__subtitle{
-            font-family: var(--font-family-text);
-            font-size: 1.3em;
-            color: rgb(153, 157, 119);
+        .contact__subtitle {
             text-align: center;
+            font-size: 1.1rem;
+            color: #374151;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.6;
         }
-        .contact__form{
+        .contact__form {
+            margin: 0 auto;
+            padding: 2.5rem;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        .contact__items {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 1em;
-            padding: 1em 0;
+            gap: 1.5rem;
         }
-        .contact__items{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            background-color: oklch(20.1% 0.006 278);
-            gap: 0.5em;
-            padding: 2em;
-            border-radius: 26px;
+        .contact__label {
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #374151;
         }
-        .contact__label{
-            font-family: var(--font-family-text);
-            font-size: var(--size-text);
-            color: oklch(0.74 0.0168 138.28);
+        .contact__items input,
+        .contact__items textarea {
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.75rem;
+            background-color: #F9FAFB;
+            color: #111827;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
         }
-        #message{
-            background-color: oklch(0.3987 0.0291 48.28);
-            line-height: 1;
+        .contact__items input:focus,
+        .contact__items textarea:focus {
+            border-color: var(--color-gold-cta);
+            outline: none;
+            box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-gold-cta) 30%, white);
+        }
+        .contact__items textarea {
+            resize: vertical;
+            min-height: 120px;
+            gap: 2rem;
+        }
+        #contact_send {
+            margin-top: 1rem;
             color: white;
-            width: 70vw;
-        }
-        #contact_send{
-            border-radius: 18px;
-            width: 150px;
             border: none;
-            background-color: rgb(25, 133, 50);
-            font-family: var(--font-family-text);
-            font-size: 1.2em;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 9999px;
             cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--color-gold-cta); 
         }
-        .contact__thank{
-            font-family: var(--font-family-text);
-            text-align: center;
-            color: var(--color-gold-cta);
-            font-size: 1.8em;
+        #contact_send:hover {
+            background-color: oklch(0.62 0.1154 85.34);
+            box-shadow: 0 4px 10px rgba(181, 141, 56, 0.25);
         }
-        #contact_send:hover{
-            background-color: rgb(39, 218, 19);
+        .contact__thank {
+            max-width: 600px;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+            padding: 1.25rem 1.5rem;
+            background-color: #eef2ff; 
+            border: 2px solid #c7d2fe;
+            color: #4338ca;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1rem;
+            margin-top: 0;
         }
-        @media screen and (min-width : 768px ) {
-            #message{
-                width: 55vw;
-            }
-            .contact__label{
-                font-size: var(--size-text-tablet);
-            }
-            #message{
-                font-size: var(--size-text-tablet);
-            }
-            .contact__thank{
-                padding-bottom: 1em;
-                font-size: 2em;
-            }
+        .contact__thank.visible {
+            opacity: 1;
+            max-height: 300px;
+            margin-top: 1.5rem;
+            animation: fadeInUp 0.6s ease;
+        }
+        @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+        .contact__thank p {
+            margin: 0;
+            color: #4338ca;
+            font-weight: 600;
         }
 
-        @media screen and (min-width : 992px) {
-            .contact__title{
-                font-size: 3.2em;
-            }
-            .contact__subtitle{
-                font-size: 2.1em;
-            }
-            .contact__label{
-                font-size: var(--size-text-desktop);
-            }
-            #message{
-                font-size: var(--size-text-desktop);
-            }
-            #contact_send{
-                font-size: 1.6em;
-                width: 20vw;
-            }
+        .contact__thank i {
+            font-size: 1.25rem;
+            color: #4338ca;
         }
 
-        @media screen and (min-width : 1200px) {
-            .contact__thank{
-                font-size: 3em;
-            }
+    /* Tablets */
+    @media screen and (min-width: 768px) {
+        .contact {
+            padding: 6rem 3rem;
         }
-        @media screen and (min-width : 1500px) {
-            #message{
-                width: 45vw;
-            }
+
+        .contact__form {
+            max-width: 500px;
+            padding: 3rem 3.5rem;
         }
-        @media screen and (min-width : 1920px) {
-            .contact__label{
-                font-size: 2.4em;
-            }
-            #contact_send{
-                height: 6vh;
-                width: 15vw;
-                font-size: 1.8em;
-            }
+
+        .contact__title {
+            font-size: 2.4rem;
         }
+
+        .contact__subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+        }
+    }
+
+    /* Escritorio */
+    @media screen and (min-width: 992px) {
+        .contact {
+            padding: 8rem 5rem;
+        }
+
+        .contact__form {
+            max-width: 600px;
+            padding: 3.5rem 4rem;
+        }
+
+        .contact__title {
+            font-size: 2.3rem;
+        }
+
+        .contact__subtitle {
+            font-size: 1.1rem;
+        }
+
+        #contact_send {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Pantallas grandes */
+    @media screen and (min-width: 1200px) {
+        .contact__form {
+            max-width: 700px;
+            padding: 4rem 5rem;
+        }
+        .contact__title {
+            font-size: 2.5rem;
+        }
+
+        .contact__subtitle {
+            font-size: 1.2rem;
+        }
+    }
 
     </style>
     <script>
@@ -195,21 +270,36 @@ import Input from "@components/Input.astro"
                 });
             });
 
-            $form.addEventListener('submit', (e) =>{
-                e.preventDefault();
-                const $msg = document.getElementById('message');
-                const formData = new FormData($form);
-                const fullName = formData.get('full-name');
-                const email = formData.get('email');
-                const message = $msg.value;
-                const newContact = {
-                    fullName,
-                    email,
-                    message
-                };
-                console.log(newContact);
-                sessionStorage.setItem( `${email}`, JSON.stringify( newContact ) );
-                $form.submit();
+            $form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const $msg = document.getElementById('message');
+            const formData = new FormData($form);
+            const fullName = formData.get('full-name');
+            const email = formData.get('email');
+            const message = $msg.value;
+            
+
+            const newContact = {
+                fullName,
+                email,
+                message
+            };
+
+            sessionStorage.setItem(`${email}`, JSON.stringify(newContact));
+
+            const $thankMsg = document.querySelector('.contact__thank');
+            $thankMsg.classList.add('visible');
+            setTimeout(() => {
+                $thankMsg.classList.remove('visible');
+                }, 5000);
+
+            $form.reset();
+
+            $submitButton.disabled = true;
+
+            console.log(newContact);
+
             });
 
         });
