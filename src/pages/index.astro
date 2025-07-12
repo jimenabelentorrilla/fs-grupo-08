@@ -13,6 +13,53 @@ import Layout from '@layouts/Layout.astro';
     </div>
   </header>
 
+  <!---especiales -->
+    <section class="home-specials">
+        <h2 class="home-section-title">Especialidades de la Casa</h2>
+        <div class="home-specials__grid">
+            <a href="/pastel%20de%20papa" class="special-item">
+                <div class="special-img-container">
+                    <img src="https://easyways.cl/storage/20200728122051pastel-de-papa.jpg" alt="Pastel de Papas" />
+                </div>
+                <div class="special-content">
+                    <h3>Pastel de papas</h3>
+                    <p>Clásica, cubierta con puré gratinado al horno.</p>
+                </div>
+            </a>
+            <a href="/tortilla%20de%20papas" class="special-item">
+                <div class="special-img-container">
+                    <img src="https://assets.elgourmet.com/wp-content/uploads/2023/03/cover_kvh73gs5ar_tortilla.jpg" alt="Tortilla de Papas" />
+                </div>
+                <div class="special-content">
+                    <h3>Tortilla de papas</h3>
+                    <p>Dorada por fuera y tierna por dentro.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+<!---Fin especiales -->
+
+<!---mapa -->
+    <section class="home-contact">
+        <h2 class="home-section-title">¿Dónde estamos?</h2>
+        <p>Nos encontrás en Av. Siempreviva 1234, CABA</p>
+        <div class="map-container">
+            <iframe
+            title="Ubicación Restó Bodegón"
+            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13136.315946007775!2d-58.3855332751465!3d-34.6021641377884!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sus!4v1752332207189!5m2!1ses-419!2sus"
+            width="100%"
+            height="350"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+            </iframe>
+        </div>
+        <a class="header-btn" href="/reservation">Reservar una mesa</a>
+    </section>
+<!---FIN mapa-->
+
+
   <style>
     .cnt-header {
         background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -21,7 +68,7 @@ import Layout from '@layouts/Layout.astro';
         background-size: cover;
         background-attachment: fixed;
         position: relative;
-        min-height: calc(100vh - 4rem); 
+        min-height: 100vh; 
         padding-top: 70px; 
         padding-left: 5%;
         display: flex;
@@ -29,50 +76,175 @@ import Layout from '@layouts/Layout.astro';
         align-items: center;
     }
 
-.header-text {
-    color: white;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+    .header-text {
+        color: white;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .header-title {
+        font-family: var(--font-family-title);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.5;
+        font-size: 2.4rem;
+    }
+
+    .header-paragraph {
+        font-family: var(--font-family-text);
+        font-size: 1.1rem;
+        opacity: 0.9;
+        line-height: 1.8;
+        max-width: 700px;
+        letter-spacing: .8px;
+        font-weight: 300;
+    }
+
+    .header-btn {
+        display: inline-block;
+        padding: 0.8em 2em;
+        background-color: var(--color-gold-cta, #d4af37);
+        color: #ffffff;
+        border-radius: 50px;
+        font-family: var(--font-family-text);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .header-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+
+    /** especiales **/
+    .home-section-title {
+        font-family: var(--font-family-title);
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--color-gold-cta);
+    }
+
+    .home-specials {
+        padding: 4rem 2rem;
+        background: linear-gradient(to bottom, #fff0f5, #ffffff);
+        min-height: 80vh;
+        margin: auto 0;
+    }
+
+    .home-specials__grid {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    .special-item {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-radius: 1rem;
+        text-decoration: none;
+        background-color: #f3f4f6;
+        box-shadow: 0 2px 6px oklch(0.3 0.02 250 / 0.08);
+        border: 1px solid oklch(0 0 0 / 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .special-img-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px 12px 0 0;
+        height: 200px; /* ✅ Este es el alto que unificás */
+    }
+
+    .special-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* ✅ Hace que se recorte en lugar de deformarse */
+        filter: brightness(65%);
+        transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .special-img-container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.25);
+        transition: background 0.4s ease;
+        z-index: 1;
+    }
+
+    .special-item:hover img {
+        transform: scale(1.05);
+        filter: brightness(90%);
+    }
+
+    .special-item:hover .special-img-container::before {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    .special-content {
+        padding: 1rem;
+    }
+
+    .special-content h3 {
+        font-size: 1.3rem;
+        font-family: var(--font-family-title);
+        color: #374151;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .special-content p {
+        font-size: 1rem;
+        color: #555;
+        font-family: var(--font-family-text);
+        margin: 0;
+    }
+
+/** fin estilos de especiales **/
+
+/****MAPA**/
+
+.home-contact {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #ffffff;
 }
 
-.header-title {
-    font-family: var(--font-family-title);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.5;
-    font-size: 2.4rem;
+.home-contact p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-family-text);
+  color: #374151;
 }
 
-.header-paragraph {
-    font-family: var(--font-family-text);
-    font-size: 1.1rem;
-    opacity: 0.9;
-    line-height: 1.8;
-    max-width: 700px;
-    letter-spacing: .8px;
-    font-weight: 300;
+.map-container {
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-.header-btn {
-    display: inline-block;
-    padding: 0.8em 2em;
-    background-color: var(--color-gold-cta, #d4af37);
-    color: #ffffff;
-    border-radius: 50px;
-    font-family: var(--font-family-text);
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  display: block;
 }
 
-.header-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+/****FIN mapa **/
+
+
+
+
 
 /* Responsive ajustes */
 @media screen and (max-width: 767.99px) {
