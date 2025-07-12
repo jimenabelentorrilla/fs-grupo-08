@@ -6,28 +6,28 @@ export const INPUTS = [
         label : 'Nombre y Apellido',
         name : 'full-name',
         type : 'text',
-        errorMessage : 'Este campo solo admite letras.',
+        errorMessage : "Por favor ingresá tu nombre completo utilizando solo letras (sin números ni símbolos).",
         nameClass : 'reservation__item'
     },
     {
         label : "Correo Electronico",
         name : "email",
         type : "email",
-        errorMessage : "El email ingresado no es correcto.",
+        errorMessage : "Ingresá un correo electrónico válido. Ejemplo: nombre@ejemplo.com",
         nameClass : 'reservation__item'
     },
     {
         label : "Telefono Celular",
         name : "cellphone",
         type : "number",
-        errorMessage : "Numero no valido.",
+        errorMessage : "Ingresá un número de celular válido sin letras ni caracteres especiales.",
         nameClass : 'reservation__item'
     },
     {
         label : "Cantidad de Personas",
         name : "amountPer",
         type : "select",
-        errorMessage : "Este campo no puede quedar vacio.",
+        errorMessage : "Seleccioná cuántas personas asistirán a la reserva.",
         nameClass : 'reservation__item',
         options : ["1","2",'3','4','5','6','7','8']
     },
@@ -35,14 +35,14 @@ export const INPUTS = [
         label : "Fecha",
         name : "date",
         type : "date",
-        errorMessage : "La fecha ingresada no es correcta.",
+        errorMessage : "Seleccioná una fecha válida para tu reserva.",
         nameClass : 'reservation__item'
     },
     {
         label : "Hora",
         name : "time",
         type : "select",
-        errorMessage : "Por favor ingrese una fecha valida antes.",
+        errorMessage : "Seleccioná una hora disponible. Asegurate de haber elegido primero una fecha válida.",
         nameClass : 'reservation__item',
         options : SCHEDULES
     }
