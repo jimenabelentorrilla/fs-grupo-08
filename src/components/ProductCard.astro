@@ -3,6 +3,7 @@ const { name, price, image, description ,isDetail = false } = Astro.props;
 ---
 
     <div class:list={['product', {"cnt-flex-detail": isDetail}]} data-category={Astro.props.category}>
+        {isDetail && (<a href="./menu" class="btn-back">ATRAS</a>)}
         <a href={`/${name.toLowerCase()}`} class:list={['point', {"point-none": isDetail}]}>
             <div class:list={[{"cnt-flex": isDetail}]}>
                 <div>
@@ -36,6 +37,27 @@ const { name, price, image, description ,isDetail = false } = Astro.props;
 
 
     <style>
+        .btn-back {
+        display: inline-block;
+        font-family: var(--font-family-title);
+        font-weight: bold;
+        font-size: 0.8rem;
+        color: oklch(0.755 0.163 79.88);
+        background-color: transparent;
+        border: 2px solid oklch(0.755 0.163 79.88);
+        border-radius: 8px;
+        padding: 0.5rem 1.2rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .btn-back:hover {
+        background-color: oklch(0.755 0.163 79.88);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
     .point{
         cursor:pointer;
     }
@@ -136,7 +158,8 @@ const { name, price, image, description ,isDetail = false } = Astro.props;
     color: oklch(0.755 0.163 79.88);
 }
 .product-description{
-    color: oklch(0.2 0 0);
+    font-size: 1rem;
+    color: #555;
     font-family: var(--font-family-text);
     line-height: 1.8;
 }
@@ -159,7 +182,7 @@ const { name, price, image, description ,isDetail = false } = Astro.props;
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    color: oklch(0.2 0 0);
+    color: #555;
     font-family: var(--font-family-text);
 }
 
@@ -239,5 +262,9 @@ const { name, price, image, description ,isDetail = false } = Astro.props;
         .product-det-details{
             gap: 1.5rem;
         }
+        .btn-back{
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
     }
-    </style>
+</style>

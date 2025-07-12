@@ -21,7 +21,6 @@ const { image , price, description } = Astro.props;
 <Layout title={`Restó Bodegón - ${name}`}>
     
     <div class="cnt-details">
-        <a href="./menu" class="btn-back">ATRAS</a>
         <ProductCard name={name} image={image} price={price} description={description} isDetail/>
     </div>
     
@@ -39,27 +38,6 @@ const { image , price, description } = Astro.props;
         margin: 2rem auto;
         width: 70vw;
     }
-    .btn-back {
-        display: inline-block;
-        font-family: var(--font-family-title);
-        font-weight: bold;
-        font-size: 0.8rem;
-        color: oklch(0.755 0.163 79.88);
-        background-color: transparent;
-        border: 2px solid oklch(0.755 0.163 79.88);
-        border-radius: 8px;
-        padding: 0.5rem 1.2rem;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        align-self: flex-start;
-    }
-
-    .btn-back:hover {
-        background-color: oklch(0.755 0.163 79.88);
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
 
     /* Desktops (≥992px) */
     @media screen and (min-width: 992px) {
@@ -69,9 +47,5 @@ const { image , price, description } = Astro.props;
     /* Large desktops (≥1200px) */
     @media screen and (min-width: 1200px) {
         
-        .btn-back{
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
     }
 </style>

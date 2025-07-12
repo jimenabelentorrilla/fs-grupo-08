@@ -13,9 +13,10 @@ import Layout from '@layouts/Layout.astro';
     </div>
   </header>
 
-  <!---especiales -->
+  <!---Section Specials -->
     <section class="home-specials">
         <h2 class="home-section-title">Especialidades de la Casa</h2>
+        <p class="special-subt">¿Qué vas a elegir para comer hoy?</p>
         <div class="home-specials__grid">
             <a href="/pastel%20de%20papa" class="special-item">
                 <div class="special-img-container">
@@ -37,10 +38,9 @@ import Layout from '@layouts/Layout.astro';
             </a>
         </div>
     </section>
+<!---End Section Specials -->
 
-<!---Fin especiales -->
-
-<!---mapa -->
+<!---Iframe -->
     <section class="home-contact">
         <h2 class="home-section-title">¿Dónde estamos?</h2>
         <p>Nos encontrás en Av. Siempreviva 1234, CABA</p>
@@ -57,8 +57,7 @@ import Layout from '@layouts/Layout.astro';
         </div>
         <a class="header-btn" href="/reservation">Reservar una mesa</a>
     </section>
-<!---FIN mapa-->
-
+<!---End Iframe-->
 
   <style>
     .cnt-header {
@@ -122,7 +121,7 @@ import Layout from '@layouts/Layout.astro';
     }
 
 
-    /** especiales **/
+    /** Specials**/
     .home-section-title {
         font-family: var(--font-family-title);
         text-align: center;
@@ -134,7 +133,7 @@ import Layout from '@layouts/Layout.astro';
     .home-specials {
         padding: 4rem 2rem;
         background: linear-gradient(to bottom, #fff0f5, #ffffff);
-        min-height: 80vh;
+        min-height: 90vh;
         margin: auto 0;
     }
 
@@ -161,13 +160,13 @@ import Layout from '@layouts/Layout.astro';
         position: relative;
         overflow: hidden;
         border-radius: 12px 12px 0 0;
-        height: 200px; /* ✅ Este es el alto que unificás */
+        height: 200px;
     }
 
     .special-img-container img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* ✅ Hace que se recorte en lugar de deformarse */
+        object-fit: cover; 
         filter: brightness(65%);
         transition: transform 0.4s ease, filter 0.4s ease;
     }
@@ -207,43 +206,48 @@ import Layout from '@layouts/Layout.astro';
         font-family: var(--font-family-text);
         margin: 0;
     }
+    .special-subt{
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        font-family: var(--font-family-text);
+        color: #374151;
+        text-align: center;
+    }
+   
 
-/** fin estilos de especiales **/
+/**End Specials **/
 
-/****MAPA**/
+/**Iframe**/
 
-.home-contact {
-  padding: 4rem 2rem;
-  text-align: center;
-  background-color: #ffffff;
-}
+    .home-contact {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #ffffff;
+    }
 
-.home-contact p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  font-family: var(--font-family-text);
-  color: #374151;
-}
+    .home-contact p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-family-text);
+    color: #374151;
+    }
 
-.map-container {
-  margin: 0 auto 2rem auto;
-  max-width: 900px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
+    .map-container {
+    margin: 0 auto 2rem auto;
+    max-width: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
 
-.map-container iframe {
-  width: 100%;
-  height: 350px;
-  border: 0;
-  display: block;
-}
+    .map-container iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    display: block;
+    }
 
-/****FIN mapa **/
-
-
-
+/****End Iframe **/
 
 
 /* Responsive ajustes */
