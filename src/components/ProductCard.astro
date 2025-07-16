@@ -3,7 +3,7 @@ const { name, price, image, description ,isDetail = false } = Astro.props;
 ---
 
     <div class:list={['product', {"cnt-flex-detail": isDetail}]} data-category={Astro.props.category}>
-        {isDetail && (<a href="./menu" class="btn-back">ATRAS</a>)}
+        {isDetail && (<a href="../menu" class="btn-back">ATRAS</a>)}
         <a href={`/${name.toLowerCase()}`} class:list={['point', {"point-none": isDetail}]}>
             <div class:list={[{"cnt-flex": isDetail}]}>
                 <div>
